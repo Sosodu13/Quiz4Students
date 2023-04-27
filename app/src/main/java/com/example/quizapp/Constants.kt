@@ -1,5 +1,7 @@
 package com.example.quizapp
 
+import com.example.quizapp.model.data.Question
+
 object Constants {
     fun getQuestions(): ArrayList<Question> {
         val questionsList = ArrayList<Question>()

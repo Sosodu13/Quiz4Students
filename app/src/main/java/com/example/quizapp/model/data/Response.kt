@@ -2,6 +2,7 @@ package com.example.quizapp.model.data
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import androidx.room.Relation
 import java.io.Serializable
 
 @Entity

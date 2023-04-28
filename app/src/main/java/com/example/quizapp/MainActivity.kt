@@ -11,6 +11,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.quizapp.model.QuizDatabase
 import com.example.quizapp.model.data.Concept
 import com.example.quizapp.model.data.Cours
 import kotlinx.android.synthetic.main.activity_main.*
@@ -21,6 +22,8 @@ class MainActivity : AppCompatActivity() {
 
         // val db = EnterpriseDatabase.getDatabase(this)
         // val etablissementDao = db.etablissementDao()
+
+        QuizDatabase.getDatabase(this)
 
         val conceptList = ArrayList<Concept>()
 

@@ -7,6 +7,7 @@ import java.io.Serializable
 data class Cours(
     val id: Long? = null,
     val libel: String,
+    val tag: String,
 ) : Serializable {
 
 }

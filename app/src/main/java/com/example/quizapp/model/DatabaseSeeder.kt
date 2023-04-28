@@ -249,154 +249,305 @@ class DatabaseSeeder(private val context: Context) : RoomDatabase.Callback() {
         val response1Q1 = Response(1, "À écrire le code source de son projet", true, 1)
         val response2Q1 = Response(2,  "À corriger et rectifier les erreurs commises par le programmeur", false, 1)
         val response3Q1 = Response(3,  "À  faire une traduction du code source au langage binaire", false, 1)
-        val response4Q1 = Response(3,  "À calculer le temps nécessaire pour exécuter le programme", false, 1)
-        val response5Q1 = Response(4,  "Je ne sais pas", false, 1)
-        val response1Q2 = Response(5, "Les 3 réponses", true, 2)
-        val response2Q2 = Response(6,  "Aucune des réponses", false, 2)
-        val response3Q2 = Response(7,  "Convertir son code source en code machine comme le langage qu'une machine utilise pour “dialoguer” avec son processeur et sa mémoire est le binaire et ce n'est pas 'Python'", false, 2)
-        val response4Q2 = Response(8,  "Jouer le rôle d’interface entre son projet logiciel et le processeur", false, 2)
-        val response5Q2 = Response(9,  "Traiter le code source pendant son fonctionnement et exécuter le programme écrit dans le langage informatique « python »", false, 2)
-        val response1Q3 = Response(10,  "Passer d'une logique matérielle à une logique de service. Le but étant de limiter ses investissements tout en se laissant la possibilité d'évoluer facilement en termes de capacité", false, 2)
-        val response2Q3 = Response(11,  "Passer d'une logique matérielle à une logique de service sur place. Le service cloud déploie le serveur dans l'entreprise et gère la maintenance", false, 2)
-        val response3Q3 = Response(12,  "Passer d'une logique matérielle à une logique de décentralisation. Le service est ainsi déployé sur la blockchain et évolue en fonction des demandes utilisateurs", false, 2)
-        val response4Q3 = Response(13,  "Passer d'une logique matérielle à une logique 'all inclusive'. Le serveur déployé dans l'entreprise cliente est alors entièrement géré par OVHcloud qui s'occupe pour l'entreprise l'ensemble des évolutions et maintenances nécessaires", false, 2)
-        val response5Q3 = Response(14,  "Je ne sais pas", false, 2)
-        val response1Q4 = Response(15,  "Cela permet de capter facilement des clients potentiels. Si l’on n’apparaît pas sur la première page de Google, on est hors jeu.", false, 2)
-        val response2Q4 = Response(16,  "Cela permet d'être respectueux des normes écologiques et d'obtenir le label 'site-web vert'", false, 2)
-        val response3Q4 = Response(17,  "Cela permet de produire un contenu de qualité sur son site internet", false, 2)
-        val response4Q4 = Response(18,  "Cela permet de gagner de l'argent avec son site en se basant sur le nombre de clics par jour", false, 2)
-        val response5Q4 = Response(19,  "Je ne sais pas", false, 2)
-        val response1Q5 = Response(20,  "Oui. Mais attention, chaque réseau social a ses codes, certains contenus peuvent être communs, d’autres doivent être retravaillés", false, 2)
-        val response2Q5 = Response(21,  "Oui évidemment, cela ne nécessite aucune charge de travail supplémentaire. Il suffit d'un « clic » pour publier le contenu sur tous les réseaux sociaux", false, 2)
-        val response3Q5 = Response(22,  "Non, elle peut publier la vidéo uniquement sur YouTube", false, 2)
-        val response4Q5 = Response(23,  "Non, il vaut mieux poster les photos sur Instagram, les vidéos sur YouTube et TikTok et les articles sur LinkedIn", false, 2)
-        val response5Q5 = Response(24,  "Je ne sais pas", false, 2)
-        val response1Q6 = Response(25,  "Cela dépend. Il existe des sites qui recensent les horaires et les jours statistiquement favorables, réseau social par réseau social", false, 2)
-        val response2Q6 = Response(26,  "Le lundi entre 8h et 9h ou entre 16h et 17h parce que cela correspond aux heures d'arrivée et de départ des entreprises", false, 2)
-        val response3Q6 = Response(27,  "A n’importe quel moment, cela n’a pas d’importance", false, 2)
-        val response4Q6 = Response(28,  "Cela dépend. Sur un réseau B2B (business to business), c'est avant 9h, entre midi et 14h, puis après 17h. Pour un réseau B2C (business to consumer), c'est entre 14h et 17h", false, 2)
-        val response5Q6 = Response(29,  "Je ne sais pas", false, 2)
-        val response1Q7 = Response(25,  "Hugo doit faire très attention s'il a reçu un mail qui semble envoyé par son directeur. Il doit le supprimer sans cliquer sur le lien hypertexte qui renvoie vers un faux site afin d’obtenir des données confidentielles", false, 2)
-        val response2Q7 = Response(26,  "La boite mail de son directeur a été piratée, des personnes malveillantes ont obtenu des données confidentielles via sa boite mail et il n’arrive pas à récupérer tous les messages", false, 2)
-        val response3Q7 = Response(27,  "Hugo va recevoir un nombre important de mails venant de son directeur. Un système d'envoi massif de courriers électroniques utilise le mail du directeur pour envoyer des emails sans intérêt aux collaborateurs de l'entreprise. Hugo doit juste les négliger.", false, 2)
-        val response4Q7 = Response(28,  "Je ne sais pas", false, 2)
-        val response5Q7 = Response(29,  "", false, 2)
-        val response1Q8 = Response(30,  "Les données doivent être lues uniquement par des personnes habilitées et aucune copie illicite ne doit pouvoir être réalisée", false, 2)
-        val response2Q8 = Response(31,  "Les données ne doivent pas contenir d'informations erronées", false, 2)
-        val response3Q8 = Response(32,  "Les données ne doivent pas pouvoir être altérées à cause d'une intrusion dans le système informatique", false, 2)
-        val response4Q8 = Response(33,  "Les données doivent pouvoir être sauvegardées automatiquement", false, 2)
-        val response5Q8 = Response(34,  "Je ne sais pas", false, 2)
-        val response1Q9 = Response(35,  "Jamais. Elle doit toujours être vigilante quand elle utilise des ordinateurs publics ou partagés. En effet, elle doit protéger ses mots de passe et ne pas oublier de bien se déconnecter de tous ses comptes personnels", false, 2)
-        val response2Q9 = Response(36,  "Oui. Comme elle utilise un ordinateur sécurisé de l’école, il n'y a aucun risque que quelqu’un puisse récupérer les informations de son compte bancaire", false, 2)
-        val response3Q9 = Response(37,  "Oui. Comme cela, ce sera plus simple pour elle de consulter son compte bancaire à chaque fois qu’elle utilise cet ordinateur dans la bibliothèque", false, 2)
-        val response4Q9 = Response(38,  "Aucune différence. L’essentiel est qu’elle s’assure qu’elle est bien déconnectée de son compte bancaire avant de sortir de l’école", false, 2)
-        val response5Q9 = Response(39,  "Je ne sais pas", false, 2)
-        val response1Q10 = Response(40,  "Un robot logiciel pouvant dialoguer avec le consommateur en imitant les conversations humaines, à partir d'algorithmes de Machine Learning (ML) et de reconnaissance du langage naturel (NLP).", false, 2)
-        val response2Q10 = Response(41,  "Un programme qui met les internautes en communication par téléphone avec un expert disponible afin de répartir la charge de travail au sein d'une équipe support", false, 2)
-        val response3Q10 = Response(42,  "Un expert au service à la clientèle, qui doit répondre aux demandes d'information 24 heures sur 24, 7 jours sur 7.", false, 2)
-        val response4Q10 = Response(43,  "Un spécialiste de marketing qui veut attirer de nouveaux clients en proposant de nouveaux produits et services.", false, 2)
-        val response5Q10 = Response(44,  "Je ne sais pas", false, 2)
-        val response1Q11 = Response(45,  "Les 3 réponses", false, 2)
-        val response2Q11 = Response(46,  "Toutes les réponses sont fausses", false, 2)
-        val response3Q11 = Response(47,  "Recevoir une notification de la banque lorsque quelqu'un effectue une transaction à partir d'un endroit qui se trouve à 1 000 km de son adresse de domicile. Il s'agit de détecter toute fraude potentielle.", false, 2)
-        val response4Q11 = Response(48,  "L’utilisation de la reconnaissance vocale comme par exemple Alexa, l'assistant d'Amazon, ou Google Home.", false, 2)
-        val response5Q11 = Response(49,  "La capacité à analyser l’imagerie médicale pour les cartographier et les catégoriser. Cela permet d’obtenir un diagnostic plus fiable, par exemple pour les mammographies", false, 2)
-        val response1Q12 = Response(50,  "Le programme est capable de s'adapter à son environnement et donc de modifier sa réponse en fonction d'éléments qui n'ont pas été spécifiquement indiqués dans le code", false, 2)
-        val response2Q12 = Response(51,  "Le programme est capable de trouver la réponse parmi un ensemble de choix prédéterminés dans le code", false, 2)
-        val response3Q12 = Response(52,  "Le programme est en capacité de remplacer les processus rationnels et cognitifs humains", false, 2)
-        val response5Q12 = Response(53,  "Le programme est en capacité de remplacer les processus rationnels et cognitifs humains", false, 2)
-        val response4Q12 = Response(54,  "Je ne sais pas", false, 2)
-        val response1Q13 = Response(55,  "Les tableaux de bord permettent de mettre en lien les données et de simplifier leur lecture. Chaque directeur peut ainsi s'appuyer sur des jeux de données pertinents pour piloter son activité", false, 2)
-        val response2Q13 = Response(56,  "Les tableaux de bord permettent d'identifier quels employés ne font pas leur travail afin de leur proposer une rupture conventionnelle et ainsi de pouvoir recruter des employés plus performants", false, 2)
-        val response3Q13 = Response(57,  "Les tableaux de bord s'appuient sur des algorithmes de big data qui déduisent automatiquement les informations pertinentes à afficher. Cela permet de remplacer les directeurs", false, 2)
-        val response5Q13 = Response(58,  "Les tableaux de bord sont des interfaces virtuelles créées pour la réalité virtuelle. Ils permettent d'analyser en 3 dimensions les liens entre les données", false, 2)
-        val response4Q13 = Response(59,  "Je ne sais pas", false, 2)
-        val response1Q14 = Response(60,  "Prendre des décisions à partir des données permet de rentrer dans une stratégie basée sur les faits. Ainsi, on n'utilise pas les données pour confirmer ses intuitions mais pour diriger ses actions", false, 2)
-        val response2Q14 = Response(61,  "Le but est de stocker un maximum de données en espérant les analyser plus tard et pouvoir mesurer l'impact de ses décisions", false, 2)
-        val response3Q14 = Response(62,  "Le plus important n'est pas le chiffre d'affaires ou les clients mais les données. Cela permet de mesurer l'évolution des indicateurs de performance", false, 2)
-        val response5Q14 = Response(63,  "Utiliser des logiciels de business intelligence permet d'obtenir des rapports sur les tendances. En les mesurant, Hugo pourra se rassurer sur ses prises de décisions", false, 2)
-        val response4Q14 = Response(64,  "Je ne sais pas", false, 2)
-        val response1Q15 = Response(65,  "La plupart des entreprises n'analysent pas leurs données en temps réel. Les données sont donc copiées (souvent le soir) vers un datawarehouse, sorte de grosse base de données où on les lie entre elles et les prépare pour être ensuite plus facilement lues", false, 2)
-        val response2Q15 = Response(66,  "Chris s'est moqué de lui car il est jeune. Datawarehouse est le nom d'un célèbre entrepôt de LVMH qui a brûlé dans les années 80, détruisant ainsi l'équivalent de plus de 140 millions d'euros de vêtements et accessoires de marque", false, 2)
-        val response3Q15 = Response(67,  "Le fait que Yasser ne puisse pas accéder à des données aussi importantes en temps réel est un indicateur que l'entreprise n'a toujours pas commencé sa digitalisation. Il n'est pas normal que des gens doivent saisir ces données dans le logiciel datawarehouse alors qu'elles sont déjà présentes dans les bases de données", false, 2)
-        val response5Q15 = Response(68,  "Il doit y avoir un problème dans la copie des données de la base de données principale vers le datawarehouse. Yasser devrait ouvrir un ticket d'incident auprès de son service informatique pour accélérer le dépannage", false, 2)
-        val response4Q15 = Response(69,  "Je ne sais pas", false, 2)
-        val response1Q16 = Response(70,  "Vrai, une entreprise 2.0 utilise un site, un intranet et les réseaux sociaux, une entreprise 3.0 s'appuie sur le tout-automatisation et de la robotique et la 4.0, celle du digital, le big data / l’analytique et l'intelligence artificielle", false, 2)
-        val response2Q16 = Response(71,  "Faux, une entreprise 2.0 correspond à l'entreprise où on peut acheter ses produit en ligne sur un site internet, une entreprise 3.0 où on achète via une application et une entreprise 4.0 où on achète via plusieurs canaux", false, 2)
-        val response3Q16 = Response(72,  "Vrai, une entreprise 2.0 utilise les réseaux sociaux pour attirer des nouveaux clients, 3.0 utilise une application mobile et une entreprise 4.0 utilise la réalité virtuelle", false, 2)
-        val response5Q16 = Response(73,  "Faux, une entreprise 2.0 travaille uniquement avec des fournisseurs européens, une entreprise 3.0 uniquement des fournisseurs chinois et une entreprise 4.0 uniquement des fournisseurs coréens", false, 2)
-        val response4Q16 = Response(74,  "Je ne sais pas", false, 2)
-        val response1Q17 = Response(75,  "Modéliser un bâtiment afin d'en créer une version virtuelle. Cela permet ainsi de faciliter les simulations, la construction et la maintenance.   Le BIM signifie Building Information Modeling", false, 2)
-        val response2Q17 = Response(76,  "Modéliser les flux logistiques dans le nouvel entrepôt pour optimiser les coûts et faciliter la gestion de stock. Le BIM signifie Business In Modelisation", false, 2)
-        val response3Q17 = Response(77,  "Modéliser les flux d’information dans le nouvel entrepôt afin de proposer également un entrepôt de données et de faciliter la gestion des données. Le BIM signifie Business Information Modelisation", false, 2)
-        val response4Q17 = Response(78,  "Je ne sais pas", false, 2)
-        val response5Q17 = Response(79,  "Modéliser les flux logistiques et les flux d'information dans le nouvel entrepôt afin d'optimiser ces flux. Le BIM signifie Be In Modelisation", false, 2)
-        val response1Q18 = Response(80,  "Analyser le besoin réel et s'interroger sur : 'par quoi remplacer l'intervention humaine'. Cela peut conduire à des solutions hybrides, dans lesquelles on fait faire une partie des activités par des robots et on maintient une autre partie sous la responsabilité d'un humain", false, 2)
-        val response2Q18 = Response(81,  "Trouver des postes adéquats pour les employés qui seront remplacés par des robots.  Il faut réévaluer les compétences de ces employés afin de décider qui garder et à quel poste", false, 2)
-        val response3Q18 = Response(82,  "Prévoir un budget très important car un robot coûte au minimum 800 000€, même s'il est rentabilisé en quelques années. En effet, il remplace entre 1 et 4 personnes en fonction du modèle", false, 2)
-        val response4Q18 = Response(83,  "Disposer d'un environnement adapté avec des objets connectés, des écrans et surtout une connexion internet fiable et performante, proposant un débit supérieur au giga bit afin de pouvoir faire fonctionner le robot de façon optimale", false, 2)
-        val response5Q18 = Response(84,  "Je ne sais pas", false, 2)
-        val response1Q19 = Response(85,  "Ces sont des villes connectées qui utilisent l'intelligence artificielle et les nouvelles technologies pour améliorer le quotidien de ses habitants", false, 2)
-        val response2Q19 = Response(86,  "Ces sont des villes où la culture est mise en valeur, avec un système éducatif performant parce que basé sur les nouvelles technologies", false, 2)
-        val response3Q19 = Response(87,  "Ces sont des villes qui utilisent les réseaux sociaux pour informer leurs habitants des évènements culturels et des actualités", false, 2)
-        val response4Q19 = Response(88,  "Ces sont des villes qui mettre en avant la production locale et le développement durable", false, 2)
-        val response5Q19 = Response(89,  "Je ne sais pas", false, 2)
-        val response1Q20 = Response(90,  "Le V-commerce (virtual commerce) correspond à l’utilisation des technologies immersives pour vendre des produits et des services", false, 2)
-        val response2Q20 = Response(91,  "Le M-commerce correspond au Mobile commerce, soit la possibilité de pouvoir acheter ses produits ou services via le téléphone mobile et souvent en situation de mobilité", false, 2)
-        val response3Q20 = Response(92,  "Le E-commerce correspond à l'achat responsable (Ecologic commerce ou commerce respectant l'environnement) de biens, services et informations", false, 2)
-        val response4Q20 = Response(93,  "Le I-commerce (Immobilier commerce) correspond au fait d'acheter ou louer un logement grâce à un site ou une application", false, 2)
-        val response5Q20 = Response(94,  "Je ne sais pas", false, 2)
-        val response1Q21 = Response(95,  "Les 3 propositions sont vraies", false, 2)
-        val response2Q21 = Response(96,  "Les 3 propositions sont fausses", false, 2)
-        val response3Q21 = Response(97,  "Ce n'est pas vrai! Il suffit de regarder les innovations que sortent les grands groupes chaque année pour s'en rendre compte", false, 2)
-        val response4Q21 = Response(98,  "Il peut y avoir des blocages liés à la lourdeur des processus, aux temps importants pour prendre des décisions et à l'auto-cannibalisme de ses clients, mais il y a de l'innovation", false, 2)
-        val response5Q21 = Response(99,  "Il y a un réel manque d'intrapreneurs pour réaliser, les idées innovantes étant alors rarement mises en oeuvre", false, 2)
-        val response1Q22 = Response(100,  "Oui, il repose sur le partage des biens, services ou espaces", false, 2)
-        val response2Q22 = Response(101,  "Non, il correspond à l’économie sociale et solidaire en permettant aux gens à faible revenu de voyager", false, 2)
-        val response3Q22 = Response(102,  "Non, il correspond à l'économie circulaire car les routes sont remplies de rond-points, surtout en France", false, 2)
-        val response4Q22 = Response(103,  "Oui, car il nécessite d'être au moins deux pour pouvoir réaliser le trajet", false, 2)
-        val response5Q22 = Response(104,  "Je ne sais pas", false, 2)
-        val response1Q23 = Response(105,  "La santé représente des milliard d'euros et travailler en prévention permettrait d'allonger la vie et de réduire les soins curatifs", false, 2)
-        val response2Q23 = Response(106,  "La santé est un secteur inquiétant et important pour les gens. Il est donc très simple de leur vendre des objets connectés qui les rassurent et de collecter facilement leurs données de santé", false, 2)
-        val response3Q23 = Response(107,  "La santé est un secteur dans lequel les 'clients' sont captifs (ils n'ont pas vraiment le choix). En effet, il y a peu de nouveaux malades chaque année, le public cible est donc connu", false, 2)
-        val response4Q23 = Response(108,  "La santé est un domaine bien plus large que la finance ou les loisirs, le retour sur investissement est donc généralement beaucoup plus important", false, 2)
-        val response5Q23 = Response(109,  "Je ne sais pas", false, 23)
-        val response1Q24 = Response(110,  "Ce que les utilisateurs souhaitent, ce n’est pas forcément ce qu’il y a de mieux mais surtout quelque chose de simple", false, 24)
-        val response2Q24 = Response(111,  "Ce qui importe surtout aux utilisateurs, ce sont les films qui ont fait le plus d'entrées en salle", false, 24)
-        val response3Q24 = Response(112,  "Le modèle des séries avec un épisode par semaine a encore de l'avenir", false, 24)
-        val response4Q24 = Response(113,  "Améliorer son algorithme de recommandation est le seul moyen de rester performant", false, 24)
-        val response5Q24 = Response(114,  "Je ne sais pas", false, 24)
-        val response1Q25 = Response(115,  "Les banques ont souvent peur de prêter à des entreprises innovantes et jeunes qui ne rentrent pas dans leurs cases habituelles. Le crowdfunding permet d'emprunter directement à des particuliers", false, 25)
-        val response2Q25 = Response(116,  "Une plateforme de crowdfunding prête de l'argent gratuitement aux entrepreneurs sous forme de subventions d'Etat. Cela revient donc moins cher", false, 25)
-        val response3Q25 = Response(117,  "Les banques qui investissent dans les entreprises demandent en général 40% des parts de l'entreprise, il serait dommage qu'Eli perde le contrôle de son entreprise trop tôt", false, 25)
-        val response4Q25 = Response(118,  "Une plateforme de crowdfunding est un réseau social d'entrepreneurs. Ceux qui investissent ont donc une connaissance poussée dans le produit (ici les granulés) et il est plus simple de les convaincre", false, 25)
-        val response5Q25 = Response(119,  "Je ne sais pas", false, 25)
-        val response1Q26 = Response(120,  "La blockchain remplace le tiers de confiance par une validation informatique vérifiée par des centaines de milliers d'ordinateurs ainsi qu'un registre ouvert et transparent", false, 26)
-        val response2Q26 = Response(121,  "La blockchain propose un nouveau tiers de confiance 'virtuel' appelé Satoshi Nakamoto (une autorité virtuelle reconnue de tous)", false, 26)
-        val response3Q26 = Response(122,  "La blockchain propose de remplacer le tiers de confiance par la confiance dans chaque utilisateur", false, 26)
-        val response4Q26 = Response(123,  "La blockchain propose d'aggréger plusieurs validations de différentes autorités connues en analysant la façon d'assurer le rôle de tiers de confiance", false, 26)
-        val response5Q26 = Response(124,  "Je ne sais pas", false, 26)
-        val response1Q27 = Response(125,  "Des milliers de pc se partagent le registre des transactions et si plus de la moitié est d'accord pour enregistrer cette transaction, alors elle est considérée comme légitime", false, 27)
-        val response2Q27 = Response(126,  "Les demandes arrivent auprès de l'instance virtuelle Satoshi Nakamoto qui valide les transactions en fonction de leur provenance", false, 27)
-        val response3Q27 = Response(127,  "Les utilisateurs ont signé le Blockchain-Act et s'engage donc dans une démarche de transferts responsables, les transactions sont donc forcément validées", false, 27)
-        val response4Q27 = Response(128,  "Les demandes sont envoyées en fonction du contenu et de la disponibilité des 'grands validateurs' à un minimum de 15 grands validateurs qui, au fil des 'validations' gagnent en indice de confiance", false, 2)
-        val response5Q27 = Response(129,  "Je ne sais pas", false, 27)
-        val response1Q28 = Response(130,  "14 jours à compter de la réception de la machine", false, 28)
-        val response2Q28 = Response(131,  "7 jours à compter de la réception de la machine", false, 28)
-        val response3Q28 = Response(132,  "Cela dépend des vendeurs, le délai est généralement noté sur l'article", false, 28)
-        val response4Q28 = Response(133,  "30 jours à compter de la réception de la machine", false, 28)
-        val response5Q28 = Response(134,  "Je ne sais pas", false, 28)
-        val response1Q29 = Response(135,  "Les mentions légales (comme le RCS de l'entreprise ou les Conditions Générales de Vente)", false, 29)
-        val response2Q29 = Response(136,  "Le prix de livraison pour chaque article", false, 29)
-        val response3Q29 = Response(137,  "Le délai de rétractation pour chaque article", false, 29)
-        val response4Q29 = Response(138,  "Les moyens de paiements acceptés", false, 29)
-        val response5Q29 = Response(139,  "Je ne sais pas", false, 29)
-        val response1Q30 = Response(140,  "Toutes ces réponses", false, 30)
-        val response2Q30 = Response(141,  "Oui, car un brevet permet d'obtenir le monopole sur l'exploitation commerciale de l'invention pendant 20 ans", false,30)
-        val response3Q30 = Response(142,  "Non, car de toutes façon Valerya n'aura pas les moyens de traîner ses copieurs en justice", false, 30)
-        val response4Q30 = Response(143,  "Non, car un dépôt de brevet coûte cher tout comme sa mise à jour et son maintien", false, 30)
-        val response5Q30 = Response(144,  "Oui, car un brevet permet de justifier de l'antériorité, c'est à dire que l'on est le premier à l'avoir inventé", false, 30)
-        responseDao.insertAll(response1Q1, response2Q1, response3Q1, response4Q1, response1Q2, response2Q2, response3Q2, response4Q2)
+        val response4Q1 = Response(4,  "À calculer le temps nécessaire pour exécuter le programme", false, 1)
+        val response5Q1 = Response(5,  "Je ne sais pas", false, 1)
+        val response1Q2 = Response(6, "Les 3 réponses", true, 2)
+        val response2Q2 = Response(7,  "Aucune des réponses", false, 2)
+        val response3Q2 = Response(8,  "Convertir son code source en code machine comme le langage qu'une machine utilise pour “dialoguer” avec son processeur et sa mémoire est le binaire et ce n'est pas 'Python'", false, 2)
+        val response4Q2 = Response(9,  "Jouer le rôle d’interface entre son projet logiciel et le processeur", false, 2)
+        val response5Q2 = Response(10,  "Traiter le code source pendant son fonctionnement et exécuter le programme écrit dans le langage informatique « python »", false, 2)
+        val response1Q3 = Response(11,  "Passer d'une logique matérielle à une logique de service. Le but étant de limiter ses investissements tout en se laissant la possibilité d'évoluer facilement en termes de capacité", false, 3)
+        val response2Q3 = Response(12,  "Passer d'une logique matérielle à une logique de service sur place. Le service cloud déploie le serveur dans l'entreprise et gère la maintenance", false, 3)
+        val response3Q3 = Response(13,  "Passer d'une logique matérielle à une logique de décentralisation. Le service est ainsi déployé sur la blockchain et évolue en fonction des demandes utilisateurs", false, 3)
+        val response4Q3 = Response(14,  "Passer d'une logique matérielle à une logique 'all inclusive'. Le serveur déployé dans l'entreprise cliente est alors entièrement géré par OVHcloud qui s'occupe pour l'entreprise l'ensemble des évolutions et maintenances nécessaires", false, 3)
+        val response5Q3 = Response(15,  "Je ne sais pas", false, 3)
+        val response1Q4 = Response(16,  "Cela permet de capter facilement des clients potentiels. Si l’on n’apparaît pas sur la première page de Google, on est hors jeu.", false, 4)
+        val response2Q4 = Response(17,  "Cela permet d'être respectueux des normes écologiques et d'obtenir le label 'site-web vert'", false, 4)
+        val response3Q4 = Response(18,  "Cela permet de produire un contenu de qualité sur son site internet", false, 4)
+        val response4Q4 = Response(19,  "Cela permet de gagner de l'argent avec son site en se basant sur le nombre de clics par jour", false, 4)
+        val response5Q4 = Response(20,  "Je ne sais pas", false, 4)
+        val response1Q5 = Response(21,  "Oui. Mais attention, chaque réseau social a ses codes, certains contenus peuvent être communs, d’autres doivent être retravaillés", false, 5)
+        val response2Q5 = Response(22,  "Oui évidemment, cela ne nécessite aucune charge de travail supplémentaire. Il suffit d'un « clic » pour publier le contenu sur tous les réseaux sociaux", false, 5)
+        val response3Q5 = Response(23,  "Non, elle peut publier la vidéo uniquement sur YouTube", false, 5)
+        val response4Q5 = Response(24,  "Non, il vaut mieux poster les photos sur Instagram, les vidéos sur YouTube et TikTok et les articles sur LinkedIn", false, 2)
+        val response5Q5 = Response(25,  "Je ne sais pas", false, 5)
+        val response1Q6 = Response(26,  "Cela dépend. Il existe des sites qui recensent les horaires et les jours statistiquement favorables, réseau social par réseau social", false, 6)
+        val response2Q6 = Response(27,  "Le lundi entre 8h et 9h ou entre 16h et 17h parce que cela correspond aux heures d'arrivée et de départ des entreprises", false, 6)
+        val response3Q6 = Response(28,  "A n’importe quel moment, cela n’a pas d’importance", false, 6)
+        val response4Q6 = Response(29,  "Cela dépend. Sur un réseau B2B (business to business), c'est avant 9h, entre midi et 14h, puis après 17h. Pour un réseau B2C (business to consumer), c'est entre 14h et 17h", false, 6)
+        val response5Q6 = Response(30,  "Je ne sais pas", false, 6)
+        val response1Q7 = Response(31,  "Hugo doit faire très attention s'il a reçu un mail qui semble envoyé par son directeur. Il doit le supprimer sans cliquer sur le lien hypertexte qui renvoie vers un faux site afin d’obtenir des données confidentielles", false, 7)
+        val response2Q7 = Response(32,  "La boite mail de son directeur a été piratée, des personnes malveillantes ont obtenu des données confidentielles via sa boite mail et il n’arrive pas à récupérer tous les messages", false, 7)
+        val response3Q7 = Response(33,  "Hugo va recevoir un nombre important de mails venant de son directeur. Un système d'envoi massif de courriers électroniques utilise le mail du directeur pour envoyer des emails sans intérêt aux collaborateurs de l'entreprise. Hugo doit juste les négliger.", false, 7)
+        val response4Q7 = Response(34,  "Je ne sais pas", false, 7)
+        val response5Q7 = Response(35,  "", false, 7)
+        val response1Q8 = Response(36,  "Les données doivent être lues uniquement par des personnes habilitées et aucune copie illicite ne doit pouvoir être réalisée", false, 8)
+        val response2Q8 = Response(37,  "Les données ne doivent pas contenir d'informations erronées", false, 8)
+        val response3Q8 = Response(38,  "Les données ne doivent pas pouvoir être altérées à cause d'une intrusion dans le système informatique", false, 8)
+        val response4Q8 = Response(39,  "Les données doivent pouvoir être sauvegardées automatiquement", false, 8)
+        val response5Q8 = Response(40,  "Je ne sais pas", false, 8)
+        val response1Q9 = Response(41,  "Jamais. Elle doit toujours être vigilante quand elle utilise des ordinateurs publics ou partagés. En effet, elle doit protéger ses mots de passe et ne pas oublier de bien se déconnecter de tous ses comptes personnels", false, 9)
+        val response2Q9 = Response(42,  "Oui. Comme elle utilise un ordinateur sécurisé de l’école, il n'y a aucun risque que quelqu’un puisse récupérer les informations de son compte bancaire", false,9)
+        val response3Q9 = Response(43,  "Oui. Comme cela, ce sera plus simple pour elle de consulter son compte bancaire à chaque fois qu’elle utilise cet ordinateur dans la bibliothèque", false,9)
+        val response4Q9 = Response(44,  "Aucune différence. L’essentiel est qu’elle s’assure qu’elle est bien déconnectée de son compte bancaire avant de sortir de l’école", false, 9)
+        val response5Q9 = Response(45,  "Je ne sais pas", false, 9)
+        val response1Q10 = Response(46,  "Un robot logiciel pouvant dialoguer avec le consommateur en imitant les conversations humaines, à partir d'algorithmes de Machine Learning (ML) et de reconnaissance du langage naturel (NLP).", false, 10)
+        val response2Q10 = Response(47,  "Un programme qui met les internautes en communication par téléphone avec un expert disponible afin de répartir la charge de travail au sein d'une équipe support", false, 10)
+        val response3Q10 = Response(48,  "Un expert au service à la clientèle, qui doit répondre aux demandes d'information 24 heures sur 24, 7 jours sur 7.", false, 10)
+        val response4Q10 = Response(49,  "Un spécialiste de marketing qui veut attirer de nouveaux clients en proposant de nouveaux produits et services.", false, 10)
+        val response5Q10 = Response(50,  "Je ne sais pas", false, 10)
+        val response1Q11 = Response(51,  "Les 3 réponses", false, 11)
+        val response2Q11 = Response(52,  "Toutes les réponses sont fausses", false, 11)
+        val response3Q11 = Response(53,  "Recevoir une notification de la banque lorsque quelqu'un effectue une transaction à partir d'un endroit qui se trouve à 1 000 km de son adresse de domicile. Il s'agit de détecter toute fraude potentielle.", false, 11)
+        val response4Q11 = Response(54,  "L’utilisation de la reconnaissance vocale comme par exemple Alexa, l'assistant d'Amazon, ou Google Home.", false, 11)
+        val response5Q11 = Response(55,  "La capacité à analyser l’imagerie médicale pour les cartographier et les catégoriser. Cela permet d’obtenir un diagnostic plus fiable, par exemple pour les mammographies", false, 11)
+        val response1Q12 = Response(56,  "Le programme est capable de s'adapter à son environnement et donc de modifier sa réponse en fonction d'éléments qui n'ont pas été spécifiquement indiqués dans le code", false, 12)
+        val response2Q12 = Response(57,  "Le programme est capable de trouver la réponse parmi un ensemble de choix prédéterminés dans le code", false, 12)
+        val response3Q12 = Response(58,  "Le programme est en capacité de raisonner et de faire le lien entre différents domaines. Par exemple, entre le marketing, la logistique et les achats", false, 12)
+        val response4Q12 = Response(59,  "Le programme est en capacité de remplacer les processus rationnels et cognitifs humains", false, 12)
+        val response5Q12 = Response(60,  "Je ne sais pas", false, 12)
+        val response1Q13 = Response(61,  "Les tableaux de bord permettent de mettre en lien les données et de simplifier leur lecture. Chaque directeur peut ainsi s'appuyer sur des jeux de données pertinents pour piloter son activité", false, 13)
+        val response2Q13 = Response(62,  "Les tableaux de bord permettent d'identifier quels employés ne font pas leur travail afin de leur proposer une rupture conventionnelle et ainsi de pouvoir recruter des employés plus performants", false, 13)
+        val response3Q13 = Response(63,  "Les tableaux de bord s'appuient sur des algorithmes de big data qui déduisent automatiquement les informations pertinentes à afficher. Cela permet de remplacer les directeurs", false, 13)
+        val response4Q13 = Response(64,  "Les tableaux de bord sont des interfaces virtuelles créées pour la réalité virtuelle. Ils permettent d'analyser en 3 dimensions les liens entre les données", false, 13)
+        val response5Q13 = Response(65,  "Je ne sais pas", false, 13)
+        val response1Q14 = Response(66,  "Prendre des décisions à partir des données permet de rentrer dans une stratégie basée sur les faits. Ainsi, on n'utilise pas les données pour confirmer ses intuitions mais pour diriger ses actions", false, 14)
+        val response2Q14 = Response(67,  "Le but est de stocker un maximum de données en espérant les analyser plus tard et pouvoir mesurer l'impact de ses décisions", false, 14)
+        val response3Q14 = Response(68,  "Le plus important n'est pas le chiffre d'affaires ou les clients mais les données. Cela permet de mesurer l'évolution des indicateurs de performance", false, 14)
+        val response4Q14 = Response(69,  "Utiliser des logiciels de business intelligence permet d'obtenir des rapports sur les tendances. En les mesurant, Hugo pourra se rassurer sur ses prises de décisions", false, 14)
+        val response5Q14 = Response(70,  "Je ne sais pas", false, 14)
+        val response1Q15 = Response(71,  "La plupart des entreprises n'analysent pas leurs données en temps réel. Les données sont donc copiées (souvent le soir) vers un datawarehouse, sorte de grosse base de données où on les lie entre elles et les prépare pour être ensuite plus facilement lues", false, 15)
+        val response2Q15 = Response(72,  "Chris s'est moqué de lui car il est jeune. Datawarehouse est le nom d'un célèbre entrepôt de LVMH qui a brûlé dans les années 80, détruisant ainsi l'équivalent de plus de 140 millions d'euros de vêtements et accessoires de marque", false, 15)
+        val response3Q15 = Response(73,  "Le fait que Yasser ne puisse pas accéder à des données aussi importantes en temps réel est un indicateur que l'entreprise n'a toujours pas commencé sa digitalisation. Il n'est pas normal que des gens doivent saisir ces données dans le logiciel datawarehouse alors qu'elles sont déjà présentes dans les bases de données", false, 15)
+        val response4Q15 = Response(74,  "Il doit y avoir un problème dans la copie des données de la base de données principale vers le datawarehouse. Yasser devrait ouvrir un ticket d'incident auprès de son service informatique pour accélérer le dépannage", false, 15)
+        val response5Q15 = Response(75,  "Je ne sais pas", false, 15)
+        val response1Q16 = Response(76,  "Vrai, une entreprise 2.0 utilise un site, un intranet et les réseaux sociaux, une entreprise 3.0 s'appuie sur le tout-automatisation et de la robotique et la 4.0, celle du digital, le big data / l’analytique et l'intelligence artificielle", false, 16)
+        val response2Q16 = Response(77,  "Faux, une entreprise 2.0 correspond à l'entreprise où on peut acheter ses produit en ligne sur un site internet, une entreprise 3.0 où on achète via une application et une entreprise 4.0 où on achète via plusieurs canaux", false, 16)
+        val response3Q16 = Response(78,  "Vrai, une entreprise 2.0 utilise les réseaux sociaux pour attirer des nouveaux clients, 3.0 utilise une application mobile et une entreprise 4.0 utilise la réalité virtuelle", false, 16)
+        val response4Q16 = Response(79,  "Faux, une entreprise 2.0 travaille uniquement avec des fournisseurs européens, une entreprise 3.0 uniquement des fournisseurs chinois et une entreprise 4.0 uniquement des fournisseurs coréens", false, 16)
+        val response5Q16 = Response(80,  "Je ne sais pas", false, 16)
+        val response1Q17 = Response(81,  "Modéliser un bâtiment afin d'en créer une version virtuelle. Cela permet ainsi de faciliter les simulations, la construction et la maintenance.   Le BIM signifie Building Information Modeling", false, 17)
+        val response2Q17 = Response(82,  "Modéliser les flux logistiques dans le nouvel entrepôt pour optimiser les coûts et faciliter la gestion de stock. Le BIM signifie Business In Modelisation", false, 17)
+        val response3Q17 = Response(83,  "Modéliser les flux d’information dans le nouvel entrepôt afin de proposer également un entrepôt de données et de faciliter la gestion des données. Le BIM signifie Business Information Modelisation", false,17)
+        val response4Q17 = Response(84,  "Je ne sais pas", false, 17)
+        val response5Q17 = Response(85,  "Modéliser les flux logistiques et les flux d'information dans le nouvel entrepôt afin d'optimiser ces flux. Le BIM signifie Be In Modelisation", false, 17)
+        val response1Q18 = Response(86,  "Analyser le besoin réel et s'interroger sur : 'par quoi remplacer l'intervention humaine'. Cela peut conduire à des solutions hybrides, dans lesquelles on fait faire une partie des activités par des robots et on maintient une autre partie sous la responsabilité d'un humain", false, 18)
+        val response2Q18 = Response(87,  "Trouver des postes adéquats pour les employés qui seront remplacés par des robots.  Il faut réévaluer les compétences de ces employés afin de décider qui garder et à quel poste", false, 18)
+        val response3Q18 = Response(88,  "Prévoir un budget très important car un robot coûte au minimum 800 000€, même s'il est rentabilisé en quelques années. En effet, il remplace entre 1 et 4 personnes en fonction du modèle", false, 18)
+        val response4Q18 = Response(89,  "Disposer d'un environnement adapté avec des objets connectés, des écrans et surtout une connexion internet fiable et performante, proposant un débit supérieur au giga bit afin de pouvoir faire fonctionner le robot de façon optimale", false, 18)
+        val response5Q18 = Response(90,  "Je ne sais pas", false, 18)
+        val response1Q19 = Response(91,  "Ces sont des villes connectées qui utilisent l'intelligence artificielle et les nouvelles technologies pour améliorer le quotidien de ses habitants", false, 19)
+        val response2Q19 = Response(92,  "Ces sont des villes où la culture est mise en valeur, avec un système éducatif performant parce que basé sur les nouvelles technologies", false, 19)
+        val response3Q19 = Response(93,  "Ces sont des villes qui utilisent les réseaux sociaux pour informer leurs habitants des évènements culturels et des actualités", false, 19)
+        val response4Q19 = Response(94,  "Ces sont des villes qui mettre en avant la production locale et le développement durable", false, 19)
+        val response5Q19 = Response(95,  "Je ne sais pas", false, 19)
+        val response1Q20 = Response(96,  "Le V-commerce (virtual commerce) correspond à l’utilisation des technologies immersives pour vendre des produits et des services", false, 20)
+        val response2Q20 = Response(97,  "Le M-commerce correspond au Mobile commerce, soit la possibilité de pouvoir acheter ses produits ou services via le téléphone mobile et souvent en situation de mobilité", false, 20)
+        val response3Q20 = Response(98,  "Le E-commerce correspond à l'achat responsable (Ecologic commerce ou commerce respectant l'environnement) de biens, services et informations", false, 20)
+        val response4Q20 = Response(99,  "Le I-commerce (Immobilier commerce) correspond au fait d'acheter ou louer un logement grâce à un site ou une application", false, 20)
+        val response5Q20 = Response(100,  "Je ne sais pas", false, 20)
+        val response1Q21 = Response(101,  "Les 3 propositions sont vraies", false, 21)
+        val response2Q21 = Response(102,  "Les 3 propositions sont fausses", false, 21)
+        val response3Q21 = Response(103,  "Ce n'est pas vrai! Il suffit de regarder les innovations que sortent les grands groupes chaque année pour s'en rendre compte", false, 21)
+        val response4Q21 = Response(104,  "Il peut y avoir des blocages liés à la lourdeur des processus, aux temps importants pour prendre des décisions et à l'auto-cannibalisme de ses clients, mais il y a de l'innovation", false, 21)
+        val response5Q21 = Response(105,  "Il y a un réel manque d'intrapreneurs pour réaliser, les idées innovantes étant alors rarement mises en oeuvre", false, 21)
+        val response1Q22 = Response(106,  "Oui, il repose sur le partage des biens, services ou espaces", false, 22)
+        val response2Q22 = Response(107,  "Non, il correspond à l’économie sociale et solidaire en permettant aux gens à faible revenu de voyager", false, 22)
+        val response3Q22 = Response(108,  "Non, il correspond à l'économie circulaire car les routes sont remplies de rond-points, surtout en France", false, 22)
+        val response4Q22 = Response(109,  "Oui, car il nécessite d'être au moins deux pour pouvoir réaliser le trajet", false, 22)
+        val response5Q22 = Response(110,  "Je ne sais pas", false, 22)
+        val response1Q23 = Response(111,  "La santé représente des milliard d'euros et travailler en prévention permettrait d'allonger la vie et de réduire les soins curatifs", false, 23)
+        val response2Q23 = Response(112,  "La santé est un secteur inquiétant et important pour les gens. Il est donc très simple de leur vendre des objets connectés qui les rassurent et de collecter facilement leurs données de santé", false, 23)
+        val response3Q23 = Response(113,  "La santé est un secteur dans lequel les 'clients' sont captifs (ils n'ont pas vraiment le choix). En effet, il y a peu de nouveaux malades chaque année, le public cible est donc connu", false, 23)
+        val response4Q23 = Response(114,  "La santé est un domaine bien plus large que la finance ou les loisirs, le retour sur investissement est donc généralement beaucoup plus important", false, 23)
+        val response5Q23 = Response(115,  "Je ne sais pas", false, 23)
+        val response1Q24 = Response(116,  "Ce que les utilisateurs souhaitent, ce n’est pas forcément ce qu’il y a de mieux mais surtout quelque chose de simple", false, 24)
+        val response2Q24 = Response(117,  "Ce qui importe surtout aux utilisateurs, ce sont les films qui ont fait le plus d'entrées en salle", false, 24)
+        val response3Q24 = Response(118,  "Le modèle des séries avec un épisode par semaine a encore de l'avenir", false, 24)
+        val response4Q24 = Response(119,  "Améliorer son algorithme de recommandation est le seul moyen de rester performant", false, 24)
+        val response5Q24 = Response(120,  "Je ne sais pas", false, 24)
+        val response1Q25 = Response(121,  "Les banques ont souvent peur de prêter à des entreprises innovantes et jeunes qui ne rentrent pas dans leurs cases habituelles. Le crowdfunding permet d'emprunter directement à des particuliers", false, 25)
+        val response2Q25 = Response(122,  "Une plateforme de crowdfunding prête de l'argent gratuitement aux entrepreneurs sous forme de subventions d'Etat. Cela revient donc moins cher", false, 25)
+        val response3Q25 = Response(123,  "Les banques qui investissent dans les entreprises demandent en général 40% des parts de l'entreprise, il serait dommage qu'Eli perde le contrôle de son entreprise trop tôt", false, 25)
+        val response4Q25 = Response(124,  "Une plateforme de crowdfunding est un réseau social d'entrepreneurs. Ceux qui investissent ont donc une connaissance poussée dans le produit (ici les granulés) et il est plus simple de les convaincre", false, 25)
+        val response5Q25 = Response(125,  "Je ne sais pas", false, 25)
+        val response1Q26 = Response(126,  "La blockchain remplace le tiers de confiance par une validation informatique vérifiée par des centaines de milliers d'ordinateurs ainsi qu'un registre ouvert et transparent", false, 26)
+        val response2Q26 = Response(127,  "La blockchain propose un nouveau tiers de confiance 'virtuel' appelé Satoshi Nakamoto (une autorité virtuelle reconnue de tous)", false, 26)
+        val response3Q26 = Response(128,  "La blockchain propose de remplacer le tiers de confiance par la confiance dans chaque utilisateur", false, 26)
+        val response4Q26 = Response(129,  "La blockchain propose d'aggréger plusieurs validations de différentes autorités connues en analysant la façon d'assurer le rôle de tiers de confiance", false, 26)
+        val response5Q26 = Response(130,  "Je ne sais pas", false, 26)
+        val response1Q27 = Response(131,  "Des milliers de pc se partagent le registre des transactions et si plus de la moitié est d'accord pour enregistrer cette transaction, alors elle est considérée comme légitime", false, 27)
+        val response2Q27 = Response(132,  "Les demandes arrivent auprès de l'instance virtuelle Satoshi Nakamoto qui valide les transactions en fonction de leur provenance", false, 27)
+        val response3Q27 = Response(133,  "Les utilisateurs ont signé le Blockchain-Act et s'engage donc dans une démarche de transferts responsables, les transactions sont donc forcément validées", false, 27)
+        val response4Q27 = Response(134,  "Les demandes sont envoyées en fonction du contenu et de la disponibilité des 'grands validateurs' à un minimum de 15 grands validateurs qui, au fil des 'validations' gagnent en indice de confiance", false, 2)
+        val response5Q27 = Response(135,  "Je ne sais pas", false, 27)
+        val response1Q28 = Response(136,  "14 jours à compter de la réception de la machine", false, 28)
+        val response2Q28 = Response(137,  "7 jours à compter de la réception de la machine", false, 28)
+        val response3Q28 = Response(138,  "Cela dépend des vendeurs, le délai est généralement noté sur l'article", false, 28)
+        val response4Q28 = Response(139,  "30 jours à compter de la réception de la machine", false, 28)
+        val response5Q28 = Response(140,  "Je ne sais pas", false, 28)
+        val response1Q29 = Response(141,  "Les mentions légales (comme le RCS de l'entreprise ou les Conditions Générales de Vente)", false, 29)
+        val response2Q29 = Response(142,  "Le prix de livraison pour chaque article", false, 29)
+        val response3Q29 = Response(143,  "Le délai de rétractation pour chaque article", false, 29)
+        val response4Q29 = Response(144,  "Les moyens de paiements acceptés", false, 29)
+        val response5Q29 = Response(145,  "Je ne sais pas", false, 29)
+        val response1Q30 = Response(146,  "Toutes ces réponses", false, 30)
+        val response2Q30 = Response(147,  "Oui, car un brevet permet d'obtenir le monopole sur l'exploitation commerciale de l'invention pendant 20 ans", false,30)
+        val response3Q30 = Response(148,  "Non, car de toutes façon Valerya n'aura pas les moyens de traîner ses copieurs en justice", false, 30)
+        val response4Q30 = Response(149,  "Non, car un dépôt de brevet coûte cher tout comme sa mise à jour et son maintien", false, 30)
+        val response5Q30 = Response(150,  "Oui, car un brevet permet de justifier de l'antériorité, c'est à dire que l'on est le premier à l'avoir inventé", false, 30)
+        responseDao.insertAll(
+            response1Q1,
+            response2Q1,
+            response3Q1,
+            response4Q1,
+            response5Q1,
+            response1Q2,
+            response2Q2,
+            response3Q2,
+            response4Q2,
+            response5Q2,
+            response1Q3,
+            response2Q3,
+            response3Q3,
+            response4Q3,
+            response5Q3,
+            response1Q4,
+            response2Q4,
+            response3Q4,
+            response4Q4,
+            response5Q4,
+            response1Q5,
+            response2Q5,
+            response3Q5,
+            response4Q5,
+            response5Q5,
+            response1Q6,
+            response2Q6,
+            response3Q6,
+            response4Q6,
+            response5Q6,
+            response1Q7,
+            response2Q7,
+            response3Q7,
+            response4Q7,
+            response5Q7,
+            response1Q8,
+            response2Q8,
+            response3Q8,
+            response4Q8,
+            response5Q8,
+            response1Q9,
+            response2Q9,
+            response3Q9,
+            response4Q9,
+            response5Q9,
+            response1Q10,
+            response2Q10,
+            response3Q10,
+            response4Q10,
+            response5Q10,
+            response1Q11,
+            response2Q11,
+            response3Q11,
+            response4Q11,
+            response5Q11,
+            response1Q12,
+            response2Q12,
+            response3Q12,
+            response4Q12,
+            response5Q12,
+            response1Q13,
+            response2Q13,
+            response3Q13,
+            response4Q13,
+            response5Q13,
+            response1Q14,
+            response2Q14,
+            response3Q14,
+            response4Q14,
+            response5Q14,
+            response1Q15,
+            response2Q15,
+            response3Q15,
+            response4Q15,
+            response5Q15,
+            response1Q16,
+            response2Q16,
+            response3Q16,
+            response4Q16,
+            response5Q16,
+            response1Q17,
+            response2Q17,
+            response3Q17,
+            response4Q17,
+            response5Q17,
+            response1Q18,
+            response2Q18,
+            response3Q18,
+            response4Q18,
+            response5Q18,
+            response1Q19,
+            response2Q19,
+            response3Q19,
+            response4Q19,
+            response5Q19,
+            response1Q20,
+            response2Q20,
+            response3Q20,
+            response4Q20,
+            response5Q20,
+            response1Q21,
+            response2Q21,
+            response3Q21,
+            response4Q21,
+            response5Q21,
+            response1Q22,
+            response2Q22,
+            response3Q22,
+            response4Q22,
+            response5Q22,
+            response1Q23,
+            response2Q23,
+            response3Q23,
+            response4Q23,
+            response5Q23,
+            response1Q24,
+            response2Q24,
+            response3Q24,
+            response4Q24,
+            response5Q24,
+            response1Q25,
+            response2Q25,
+            response3Q25,
+            response4Q25,
+            response5Q25,
+            response1Q26,
+            response2Q26,
+            response3Q26,
+            response4Q26,
+            response5Q26,
+            response1Q27,
+            response2Q27,
+            response3Q27,
+            response4Q27,
+            response5Q27,
+            response1Q28,
+            response2Q28,
+            response3Q28,
+            response4Q28,
+            response5Q28,
+            response1Q29,
+            response2Q29,
+            response3Q29,
+            response4Q29,
+            response5Q29,
+            response1Q30,
+            response2Q30,
+            response3Q30,
+            response4Q30,
+            response5Q30
+        )
 
         val themeDao = QuizDatabase.getDatabase(context).themedao()
         val theme1 = Theme(1, "theme 1")

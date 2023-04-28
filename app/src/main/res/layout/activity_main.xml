@@ -109,7 +109,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_bold"
                 android:gravity="center"
-                android:text="Evolution"
+                android:text="Progression"
                 android:textColor="#363A43"
                 android:textSize="32sp"
                 android:textStyle="bold" />
@@ -117,12 +117,44 @@
             <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:columnCount="3">
+                android:columnCount="4">
 
                 <TextView
+                    android:layout_column="0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_light"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:text="Niveau"
+                    android:textColor="#7A8089" />
+                <TextView
+                    android:layout_column="2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_light"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:text="Concept"
+                    android:textColor="#7A8089" />
+                <TextView
+                    android:layout_column=""
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_light"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:layout_marginStart="20dp"
+                    android:textSize="18sp"
+                    android:text="Cours"
+                    android:textColor="#7A8089" />
+
+                <TextView
                     android:layout_column="0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_light"
                     android:gravity="center"
                     android:text="Initiation"
@@ -137,6 +169,16 @@
                     android:fontFamily="@font/roboto_light"
                     android:gravity="center"
                     android:text="0"
+                    android:textColor="#7A8089"
+                    android:textSize="16sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="3"
+                    android:fontFamily="@font/roboto_light"
+                    android:gravity="center"
+                    android:layout_marginStart="20dp"
+                    android:text="45"
                     android:textColor="#7A8089"
                     android:textSize="16sp" />
 
@@ -159,6 +201,16 @@
                     android:text="12"
                     android:textColor="#7A8089"
                     android:textSize="16sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="3"
+                    android:fontFamily="@font/roboto_light"
+                    android:gravity="center"
+                    android:layout_marginStart="20dp"
+                    android:text="45"
+                    android:textColor="#7A8089"
+                    android:textSize="16sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -179,6 +231,16 @@
                     android:text="65"
                     android:textColor="#7A8089"
                     android:textSize="16sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="3"
+                    android:fontFamily="@font/roboto_light"
+                    android:gravity="center"
+                    android:layout_marginStart="20dp"
+                    android:text="45"
+                    android:textColor="#7A8089"
+                    android:textSize="16sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -196,6 +258,16 @@
                     android:layout_column="2"
                     android:fontFamily="@font/roboto_light"
                     android:gravity="center"
+                    android:text="45"
+                    android:textColor="#7A8089"
+                    android:textSize="16sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="3"
+                    android:fontFamily="@font/roboto_light"
+                    android:gravity="center"
+                    android:layout_marginStart="20dp"
                     android:text="45"
                     android:textColor="#7A8089"
                     android:textSize="16sp" />

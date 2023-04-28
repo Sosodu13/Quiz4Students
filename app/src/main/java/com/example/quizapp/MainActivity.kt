@@ -76,6 +76,11 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, ConceptActivity::class.java)
             startActivity(intent)
         }
+
+        findViewById<Button>(R.id.btn_accueil_to_cours).setOnClickListener {
+            val intent = Intent(this, CoursActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

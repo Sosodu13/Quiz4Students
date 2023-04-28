@@ -14,17 +14,17 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btn_concept_active"
+            android:id="@+id/btn_cours_to_concept"
             android:layout_width="136dp"
             android:layout_height="wrap_content"
-            android:background="#ff0062"
+            android:background="@color/colorPrimary"
             android:fontFamily="@font/roboto_bold"
             android:textColor="@android:color/white"
             android:text="Concept"
             tools:ignore="ButtonStyle" />
 
         <Button
-            android:id="@+id/btn_concept_to_accueil"
+            android:id="@+id/btn_cours_to_accueil"
             android:layout_width="151dp"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
@@ -34,10 +34,10 @@
             tools:ignore="ButtonStyle" />
 
         <Button
-            android:id="@+id/btn_concept_to_cours"
+            android:id="@+id/btn_cours_active"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
+            android:background="#ff0062"
             android:fontFamily="@font/roboto_bold"
             android:textColor="@android:color/white"
             android:text="Cours"
@@ -53,29 +53,29 @@
         android:layout_marginBottom="20dp"
         android:fontFamily="@font/roboto"
         android:gravity="center"
-        android:text="Travaillez un concept"
+        android:text="Travaillez un cours"
         android:textColor="@android:color/white"
         android:textSize="20sp"
         android:textStyle="bold">
     </TextView>
 
-
-
     <RelativeLayout
         android:id="@+id/layout"
-        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_below="@+id/tv_title_list_concept"
         android:layout_height="wrap_content">
+
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/lv_concept"
+            android:id="@+id/lv_cours"
             android:layout_width="match_parent"
             android:layout_height="350dp"
-            android:layout_marginBottom="40dp"/>
+            android:layout_marginBottom="40dp"
+            />
+
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardscore"
-            android:layout_below="@+id/lv_concept"
+            android:layout_below="@+id/lv_cours"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -189,6 +189,7 @@
                 </GridLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
+
 
         <Button
             android:id="@+id/btn_start"

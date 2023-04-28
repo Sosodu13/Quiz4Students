@@ -23,7 +23,7 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz_questions)
 
-        mQuestionList = Constants.getQuestions()
+        //mQuestionList = Constants.getQuestions()
         setQuestion()
 
         tv_option_one.setOnClickListener(this)
@@ -51,10 +51,10 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         tv_progress.text = "$mCurrentPosition" + "/" + progressBar.max
 
         tv_question.text = question.question
-        tv_option_one.text = question.optionOne
-        tv_option_two.text = question.optionTwo
-        tv_option_three.text = question.optionThree
-        tv_option_four.text = question.optionFour
+        //tv_option_one.text = question.optionOne
+        //tv_option_two.text = question.optionTwo
+        //tv_option_three.text = question.optionThree
+        //tv_option_four.text = question.optionFour
     }
 
     private fun defaultOptionsView() {
@@ -109,7 +109,7 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                     }
                 } else {
                     val question = mQuestionList?.get(mCurrentPosition - 1)
-                    if (question!!.correctOption != mSelectedOptionPosition) {
+                    /*if (question!!.correctOption != mSelectedOptionPosition) {
                         answerView(mSelectedOptionPosition, R.drawable.wrong_option_border_bg)
                     }
                     answerView(question.correctOption, R.drawable.correct_option_border_bg)
@@ -117,7 +117,7 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                         btn_submit.text = "Finish"
                     } else {
                         btn_submit.text = "Go to next question"
-                    }
+                    }*/
                     mSelectedOptionPosition = 0
                 }
 

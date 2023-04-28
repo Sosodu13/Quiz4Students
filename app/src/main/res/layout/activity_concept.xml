@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_bg"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/layout_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_concept_active"
+            android:layout_width="136dp"
+            android:layout_height="wrap_content"
+            android:background="#ff0062"
+            android:fontFamily="@font/roboto_bold"
+            android:textColor="@android:color/white"
+            android:text="Concept"
+            tools:ignore="ButtonStyle" />
+
+        <Button
+            android:id="@+id/btn_concept_to_accueil"
+            android:layout_width="151dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:fontFamily="@font/roboto_bold"
+            android:textColor="@android:color/white"
+            android:text="Home"
+            tools:ignore="ButtonStyle" />
+
+        <Button
+            android:id="@+id/btn_concept_to_cours"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:fontFamily="@font/roboto_bold"
+            android:textColor="@android:color/white"
+            android:text="Cours"
+            tools:ignore="ButtonStyle" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_title_list_concept"
+        android:layout_below="@id/layout_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/roboto"
+        android:gravity="center"
+        android:text="Travaillez un concept"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textStyle="bold">
+    </TextView>
+
+    <RelativeLayout
+        android:id="@+id/layout"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/tv_title_list_concept"
+        android:layout_height="wrap_content">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/lv_concept"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="70dp" />
+        <Button
+            android:id="@+id/btn_start"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@color/colorPrimary"
+            android:layout_alignParentBottom="true"
+            android:fontFamily="@font/roboto_bold"
+            android:textColor="@android:color/white"
+            android:text="Réviser"
+            android:textSize="18sp">
+        </Button>
+    </RelativeLayout>
+</RelativeLayout>

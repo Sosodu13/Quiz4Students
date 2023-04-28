@@ -51,7 +51,7 @@ class CoursActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.btn_cours_to_concept).setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, ConceptActivity::class.java)
             startActivity(intent)
         }
     }

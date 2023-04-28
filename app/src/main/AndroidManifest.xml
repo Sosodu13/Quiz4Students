@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ConceptActivity"></activity>
+        <activity android:name=".CoursActivity"></activity>
         <activity
             android:name=".QuizQuestionsActivity"
             android:screenOrientation="portrait"></activity>

@@ -11,6 +11,9 @@ interface ResponseDAO {
     @Query("SELECT * FROM response")
     fun getAll() : List<Response>
 
+    @Query("SELECT * FROM response where id_question = :idQuestion")
+    fun getResponsesByIdQuestion(idQuestion:Long) : List<Response>
+
     @Insert
     fun insertAll(vararg responses: Response)
 

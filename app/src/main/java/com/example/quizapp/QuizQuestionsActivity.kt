@@ -10,26 +10,30 @@ import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import com.example.quizapp.model.QuizDatabase
 import com.example.quizapp.model.data.Question
 import kotlinx.android.synthetic.main.activity_quiz_questions.*
 
 class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
 
     private var mCurrentPosition: Int = 1
-    private var mQuestionList: ArrayList<Question>? = null
+    private var mQuestionList: List<Question>? = null
     private var mSelectedOptionPosition: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz_questions)
 
-        //mQuestionList = Constants.getQuestions()
+        val db = QuizDatabase.getDatabase(this)
+
+        mQuestionList = db.questiondao().getAll()
         setQuestion()
 
         tv_option_one.setOnClickListener(this)
         tv_option_two.setOnClickListener(this)
         tv_option_three.setOnClickListener(this)
         tv_option_four.setOnClickListener(this)
+        tv_option_five.setOnClickListener(this)
         btn_submit.setOnClickListener(this)
 
 
@@ -38,7 +42,11 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
     @SuppressLint("SetTextI18n")
     private fun setQuestion() {
 
+        val db = QuizDatabase.getDatabase(this)
+
         val question = mQuestionList!!.get(mCurrentPosition - 1)
+
+        val responses = db.responsedao().getResponsesByIdQuestion(question.id!!)
 
         defaultOptionsView()
         if (mCurrentPosition == mQuestionList!!.size) {
@@ -51,10 +59,12 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         tv_progress.text = "$mCurrentPosition" + "/" + progressBar.max
 
         tv_question.text = question.question
-        //tv_option_one.text = question.optionOne
-        //tv_option_two.text = question.optionTwo
-        //tv_option_three.text = question.optionThree
-        //tv_option_four.text = question.optionFour
+
+        tv_option_one.text = responses[0].libel
+        tv_option_two.text = responses[1].libel
+        tv_option_three.text = responses[2].libel
+        tv_option_four.text = responses[3].libel
+        tv_option_five.text = responses[4].libel
     }
 
     private fun defaultOptionsView() {
@@ -64,6 +74,7 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         options.add(1, tv_option_two)
         options.add(2, tv_option_three)
         options.add(3, tv_option_four)
+        options.add(4, tv_option_five)
 
         for (option in options) {
             option.setTextColor(Color.parseColor("#7A8089"))
@@ -89,6 +100,9 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
             }
             R.id.tv_option_four -> {
                 selectedOptionView(tv_option_four, 4)
+            }
+            R.id.tv_option_five -> {
+                selectedOptionView(tv_option_five, 5)
             }
             R.id.btn_submit -> {
                 if (mSelectedOptionPosition == 0) {
@@ -155,6 +169,11 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
             }
             4 -> {
                 tv_option_four.background = ContextCompat.getDrawable(
+                    this, drawableView
+                )
+            }
+            5 -> {
+                tv_option_five.background = ContextCompat.getDrawable(
                     this, drawableView
                 )
             }

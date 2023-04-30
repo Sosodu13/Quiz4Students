@@ -18,39 +18,12 @@ class ConceptActivity : AppCompatActivity() {
         val db = QuizDatabase.getDatabase(this)
         val conceptDao = db.conceptdao()
 
-        val conceptList2 = conceptDao.getAll()
-
-        val conceptList = ArrayList<Concept>()
-
-        val question1 = Concept(
-            1,
-            "Programmation",
-            "Initiation"
-        )
-        conceptList.add(question1)
-        val question2 = Concept(
-            2,
-            "Communication",
-            "Compréhension"
-        )
-        conceptList.add(question2)
-        val question3 = Concept(
-            3,
-            "Entreprise X.0",
-            "Maîtrise"
-        )
-        conceptList.add(question3)
+        val conceptList = conceptDao.getAll()
 
         if(conceptList.count() > 0){
             val recyclerView = findViewById<RecyclerView>(R.id.lv_concept)
             recyclerView.layoutManager = LinearLayoutManager(this)
             recyclerView.adapter = ListConceptAdapter(this,conceptList!!/*,conceptDao*/)
-        }
-
-        if(conceptList2.count() > 0){
-            val recyclerView = findViewById<RecyclerView>(R.id.lv_concept)
-            recyclerView.layoutManager = LinearLayoutManager(this)
-            recyclerView.adapter = ListConceptAdapter(this,conceptList2!!/*,conceptDao*/)
         }
 
         findViewById<Button>(R.id.btn_concept_to_accueil).setOnClickListener {

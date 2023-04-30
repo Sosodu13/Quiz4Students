@@ -18,41 +18,12 @@ class CoursActivity : AppCompatActivity() {
         val db = QuizDatabase.getDatabase(this)
         val coursDao = db.coursdao()
 
-        val coursList2 = coursDao.getAll()
-
-        val coursList = ArrayList<Cours>()
-
-        val cours1 = Cours(
-            1,
-            "Programmation",
-            "Initiation"
-        )
-        coursList.add(cours1)
-
-        val cours2 = Cours(
-            2,
-            "Communication",
-            "Compréhension"
-        )
-        coursList.add(cours2)
-
-        val cours3 = Cours(
-            3,
-            "Entreprise X.0",
-            "Maîtrise"
-        )
-        coursList.add(cours3)
-
+        val coursList = coursDao.getAll()
+        
         if(coursList.count() > 0){
             val recyclerView = findViewById<RecyclerView>(R.id.lv_cours)
             recyclerView.layoutManager = LinearLayoutManager(this)
             recyclerView.adapter = ListCoursAdapter(this,coursList!!/*,conceptDao*/)
-        }
-        
-        if(coursList2.count() > 0){
-            val recyclerView = findViewById<RecyclerView>(R.id.lv_cours)
-            recyclerView.layoutManager = LinearLayoutManager(this)
-            recyclerView.adapter = ListCoursAdapter(this,coursList2!!/*,conceptDao*/)
         }
 
         findViewById<Button>(R.id.btn_cours_to_accueil).setOnClickListener {

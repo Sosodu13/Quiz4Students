@@ -26,26 +26,9 @@ class MainActivity : AppCompatActivity() {
         val db = QuizDatabase.getDatabase(this)
         db.seed()
 
-        val conceptList = ArrayList<Concept>()
+        val conceptDao = db.conceptdao()
 
-        val question1 = Concept(
-            1,
-            "Programmation",
-            "Initiation"
-        )
-        conceptList.add(question1)
-        val question2 = Concept(
-            2,
-            "Communication",
-            "Compréhension"
-        )
-        conceptList.add(question2)
-        val question3 = Concept(
-            3,
-            "Entreprise X.0",
-            "Maîtrise"
-        )
-        conceptList.add(question3)
+        val conceptList = conceptDao.getAll()
 
         if(conceptList.count() > 0){
             val recyclerView = findViewById<RecyclerView>(R.id.lv_concept)
@@ -53,28 +36,15 @@ class MainActivity : AppCompatActivity() {
             recyclerView.adapter = ListConceptAccueilAdapter(this,conceptList!!/*,conceptDao*/)
         }
 
+        val coursDao = db.coursdao()
 
-        val coursList = ArrayList<Cours>()
-
-        val cours1 = Cours(
-            1,
-            "Créer son site web",
-            "Initiation"
-        )
-        coursList.add(cours1)
-        val cours2 = Cours(
-            2,
-            "Communication digitale",
-            "Compréhension"
-        )
-        coursList.add(cours2)
+        val coursList = coursDao.getAll()
 
         if(coursList.count() > 0){
             val recyclerView = findViewById<RecyclerView>(R.id.lv_cours)
             recyclerView.layoutManager = LinearLayoutManager(this)
             recyclerView.adapter = ListCoursAccueilAdapter(this,coursList!!/*,conceptDao*/)
         }
-
 
         findViewById<Button>(R.id.btn_accueil_to_concept).setOnClickListener {
             val intent = Intent(this, ConceptActivity::class.java)

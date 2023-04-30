@@ -17,7 +17,9 @@
         <activity android:name=".QuizQuestionsActivity"
             android:theme="@style/NoActionBarTheme"
             />
-        <activity android:name=".CoursActivity"></activity>
+        <activity android:name=".CoursActivity"
+            android:theme="@style/NoActionBarTheme"
+            />
         <activity
             android:name=".MainActivity"
             android:theme="@style/NoActionBarTheme"

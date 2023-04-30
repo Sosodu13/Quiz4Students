@@ -23,7 +23,8 @@ class MainActivity : AppCompatActivity() {
         // val db = EnterpriseDatabase.getDatabase(this)
         // val etablissementDao = db.etablissementDao()
 
-        QuizDatabase.getDatabase(this)
+        val db = QuizDatabase.getDatabase(this)
+        db.seed()
 
         val conceptList = ArrayList<Concept>()
 

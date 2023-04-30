@@ -11,7 +11,8 @@ class DatabaseSeeder(private val context: Context) : RoomDatabase.Callback() {
         super.onCreate(db)
 
         // Ajouter des données à la base de données ici
-        val conceptDAO = QuizDatabase.getDatabase(context).conceptdao()
+        val db = QuizDatabase.getDatabase(context)
+        val conceptDAO = db.conceptdao()
         val concept1 = Concept(1, "Programmation", "Innitiation")
         val concept2 = Concept(2, "Big Data", "Compréhension")
         val concept3 = Concept(3, "Droit", "Maitrise")
@@ -35,7 +36,7 @@ class DatabaseSeeder(private val context: Context) : RoomDatabase.Callback() {
             concept10
         )
 
-        val concept_ThemeDAO = QuizDatabase.getDatabase(context).concept_themedao()
+        val concept_ThemeDAO = db.concept_themedao()
         val concept_theme1 = ConceptTheme(1,1,1)
         val concept_theme2 = ConceptTheme(2,2,2)
         concept_ThemeDAO.insertAll(concept_theme1, concept_theme2)
@@ -62,7 +63,7 @@ class DatabaseSeeder(private val context: Context) : RoomDatabase.Callback() {
             cours9,
         )
 
-        val questionDao = QuizDatabase.getDatabase(context).questiondao()
+        val questionDao = db.questiondao()
         val question1 = Question(1,
             "Alice travaille sur un projet de développement logiciel et elle utilise 'Python' comme langage de programmation pour coder ce projet. A quoi lui sert son éditeur de texte ?",
             "F1",
@@ -245,7 +246,7 @@ class DatabaseSeeder(private val context: Context) : RoomDatabase.Callback() {
         )
         questionDao.insertAll(question1, question2)
 
-        val responseDao = QuizDatabase.getDatabase(context).responsedao()
+        val responseDao = db.responsedao()
         val response1Q1 = Response(1, "À écrire le code source de son projet", true, 1)
         val response2Q1 = Response(2,  "À corriger et rectifier les erreurs commises par le programmeur", false, 1)
         val response3Q1 = Response(3,  "À  faire une traduction du code source au langage binaire", false, 1)
@@ -549,12 +550,12 @@ class DatabaseSeeder(private val context: Context) : RoomDatabase.Callback() {
             response5Q30
         )
 
-        val themeDao = QuizDatabase.getDatabase(context).themedao()
+        val themeDao = db.themedao()
         val theme1 = Theme(1, "theme 1")
         val theme2 = Theme(2, "theme 2")
         themeDao.insertAll(theme1, theme2)
 
-        val theme_coursDAO = QuizDatabase.getDatabase(context).theme_coursdao()
+        val theme_coursDAO = db.theme_coursdao()
         val theme_cours1 = ThemeCours(1,1,1)
         val theme_cours2 = ThemeCours(2,2,2)
         theme_coursDAO.insertAll(theme_cours1, theme_cours2)

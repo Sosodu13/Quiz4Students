@@ -60,96 +60,84 @@
 
         </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/ll_question"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
-        <TextView
-            android:id="@+id/tv_option_one"
+        <LinearLayout
+            android:id="@+id/ll_question"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@drawable/default_option_border_bg"
-            android:fontFamily="@font/roboto"
-            android:gravity="center"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:id="@+id/tv_option_one"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/default_option_border_bg"
+                android:fontFamily="@font/roboto"
+                android:gravity="center"
 
-            android:padding="15dp"
-            android:textColor="#7A8089"
-            android:textSize="18sp"
-            tools:text="Apple">
-        </TextView>
+                android:padding="15dp"
+                android:textColor="#7A8089"
+                android:textSize="18sp"
+                tools:text="Apple">
+            </TextView>
 
-        <TextView
-            android:id="@+id/tv_option_two"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@drawable/default_option_border_bg"
-            android:fontFamily="@font/roboto"
-            android:gravity="center"
-            android:padding="15dp"
-            android:textColor="#7A8089"
-            android:textSize="18sp"
-            tools:text="Apple">
-        </TextView>
+            <TextView
+                android:id="@+id/tv_option_two"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/default_option_border_bg"
+                android:fontFamily="@font/roboto"
+                android:gravity="center"
+                android:padding="15dp"
+                android:textColor="#7A8089"
+                android:textSize="18sp"
+                tools:text="Apple">
+            </TextView>
 
-        <TextView
-            android:id="@+id/tv_option_three"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@drawable/default_option_border_bg"
-            android:fontFamily="@font/roboto"
-            android:gravity="center"
-            android:padding="15dp"
-            android:textColor="#7A8089"
-            android:textSize="18sp"
-            tools:text="Apple">
-        </TextView>
+            <TextView
+                android:id="@+id/tv_option_three"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/default_option_border_bg"
+                android:fontFamily="@font/roboto"
+                android:gravity="center"
+                android:padding="15dp"
+                android:textColor="#7A8089"
+                android:textSize="18sp"
+                tools:text="Apple">
+            </TextView>
 
-        <TextView
-            android:id="@+id/tv_option_four"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@drawable/default_option_border_bg"
-            android:fontFamily="@font/roboto"
-            android:gravity="center"
-            android:padding="15dp"
-            android:textColor="#7A8089"
-            android:textSize="18sp"
-            tools:text="Apple">
-        </TextView>
+            <TextView
+                android:id="@+id/tv_option_four"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/default_option_border_bg"
+                android:fontFamily="@font/roboto"
+                android:gravity="center"
+                android:padding="15dp"
+                android:textColor="#7A8089"
+                android:textSize="18sp"
+                tools:text="Apple">
+            </TextView>
 
-        <TextView
-            android:id="@+id/tv_option_five"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@drawable/default_option_border_bg"
-            android:fontFamily="@font/roboto"
-            android:gravity="center"
-            android:padding="15dp"
-            android:textColor="#7A8089"
-            android:textSize="18sp"
-            tools:text="Apple">
-        </TextView>
+            <TextView
+                android:id="@+id/tv_option_five"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/default_option_border_bg"
+                android:fontFamily="@font/roboto"
+                android:gravity="center"
+                android:padding="15dp"
+                android:textColor="#7A8089"
+                android:textSize="18sp"
+                tools:text="Apple">
+            </TextView>
 
-        <Button
-            android:id="@+id/btn_submit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@color/colorPrimary"
-            android:fontFamily="@font/roboto_bold"
-            android:text="@string/submit_button"
-            android:textColor="@android:color/white"
-            android:textSize="18sp"
-            android:textStyle="bold">
-        </Button>
-    </LinearLayout>
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/ll_good_answer"
@@ -159,7 +147,7 @@
             android:visibility="gone"
             >
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/tv_title_feedback"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
@@ -179,20 +167,19 @@
             tools:text="La bonne réponse était qfioshqfhdsfsqduhfqhsqdsuhfoqdshfoqsdhf">
         </TextView>
 
+        </LinearLayout>
         <Button
-            android:id="@+id/btn_next_question"
+            android:id="@+id/btn_submit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@color/colorPrimary"
             android:fontFamily="@font/roboto_bold"
-            android:text="Question suivante"
+            android:text="Répondre"
             android:textColor="@android:color/white"
             android:textSize="18sp"
             android:textStyle="bold">
         </Button>
-
-        </LinearLayout>
 
     </LinearLayout>
 </ScrollView>

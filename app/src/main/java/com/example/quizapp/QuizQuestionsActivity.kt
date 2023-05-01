@@ -7,17 +7,20 @@ import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.example.quizapp.model.QuizDatabase
 import com.example.quizapp.model.data.Question
+import com.example.quizapp.model.data.Response
 import kotlinx.android.synthetic.main.activity_quiz_questions.*
 
 class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
 
     private var mCurrentPosition: Int = 1
     private var mQuestionList: List<Question>? = null
+    private var mResponseList: List<Response>? = null
     private var mSelectedOptionPosition: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,12 +50,17 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         val question = mQuestionList!!.get(mCurrentPosition - 1)
 
         val responses = db.responsedao().getResponsesByIdQuestion(question.id!!)
+        mResponseList = responses
 
         defaultOptionsView()
         if (mCurrentPosition == mQuestionList!!.size) {
-            btn_submit.text = "Finish"
+            findViewById<LinearLayout>(R.id.ll_good_answer).visibility= View.VISIBLE
+            findViewById<LinearLayout>(R.id.ll_question).visibility= View.GONE
+            btn_submit.text = "Terminé"
         } else {
-            btn_submit.text = "Submit"
+            btn_submit.text = "Répondre"
+            findViewById<LinearLayout>(R.id.ll_good_answer).visibility= View.GONE
+            findViewById<LinearLayout>(R.id.ll_question).visibility= View.VISIBLE
         }
 
         progressBar.progress = mCurrentPosition
@@ -88,6 +96,7 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
+        val db = QuizDatabase.getDatabase(this)
         when (v?.id) {
             R.id.tv_option_one -> {
                 selectedOptionView(tv_option_one, 1)
@@ -115,7 +124,7 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                         else -> {
                             Toast.makeText(
                                 this,
-                                "You have successfully completed the Quiz", Toast.LENGTH_SHORT
+                                "Vous avez terminé ce quizz !", Toast.LENGTH_SHORT
                             ).show()
                             val intent = Intent(this,MainActivity::class.java)
                             startActivity(intent)
@@ -123,15 +132,25 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                     }
                 } else {
                     val question = mQuestionList?.get(mCurrentPosition - 1)
-                    /*if (question!!.correctOption != mSelectedOptionPosition) {
-                        answerView(mSelectedOptionPosition, R.drawable.wrong_option_border_bg)
-                    }
-                    answerView(question.correctOption, R.drawable.correct_option_border_bg)
-                    if (mCurrentPosition == mQuestionList!!.size) {
-                        btn_submit.text = "Finish"
+                    val response = mResponseList?.get(mSelectedOptionPosition - 1)
+
+                    findViewById<TextView>(R.id.tv_feedback).text = question?.feedback
+
+                    if(response!!.good_response) {
+                        findViewById<TextView>(R.id.tv_title_feedback).text = "Bonne réponse"
+                        findViewById<TextView>(R.id.tv_title_feedback).setTextColor(getResources().getColor(R.color.colorGoodResponse))
                     } else {
-                        btn_submit.text = "Go to next question"
-                    }*/
+                        findViewById<TextView>(R.id.tv_title_feedback).text = "Mauvaise réponse"
+                        findViewById<TextView>(R.id.tv_title_feedback).setTextColor(getResources().getColor(R.color.colorBadResponse))
+                    }
+
+                    if (mCurrentPosition == mQuestionList!!.size) {
+                        btn_submit.text = "Terminé"
+                    } else {
+                        btn_submit.text = "Prochaine question"
+                        findViewById<LinearLayout>(R.id.ll_question).visibility= View.GONE
+                        findViewById<LinearLayout>(R.id.ll_good_answer).visibility= View.VISIBLE
+                    }
                     mSelectedOptionPosition = 0
                 }
 

@@ -7,7 +7,7 @@ import com.example.quizapp.model.data.Question
 
 @Dao
 interface QuestionDAO {
-    @Query("SELECT * FROM question LIMIT 10")
+    @Query("SELECT * FROM question ORDER BY random() LIMIT 10")
     fun getAll() : List<Question>
 
     @Query("Select count(*) from question")

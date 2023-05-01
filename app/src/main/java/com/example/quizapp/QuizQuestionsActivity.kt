@@ -53,15 +53,11 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         mResponseList = responses
 
         defaultOptionsView()
-        if (mCurrentPosition == mQuestionList!!.size) {
-            findViewById<LinearLayout>(R.id.ll_good_answer).visibility= View.VISIBLE
-            findViewById<LinearLayout>(R.id.ll_question).visibility= View.GONE
-            btn_submit.text = "Terminé"
-        } else {
-            btn_submit.text = "Répondre"
-            findViewById<LinearLayout>(R.id.ll_good_answer).visibility= View.GONE
-            findViewById<LinearLayout>(R.id.ll_question).visibility= View.VISIBLE
-        }
+
+        findViewById<LinearLayout>(R.id.ll_good_answer).visibility= View.GONE
+        findViewById<LinearLayout>(R.id.ll_question).visibility= View.VISIBLE
+
+        btn_submit.text = "Répondre"
 
         progressBar.progress = mCurrentPosition
         tv_progress.text = "$mCurrentPosition" + "/" + progressBar.max
@@ -146,6 +142,8 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
 
                     if (mCurrentPosition == mQuestionList!!.size) {
                         btn_submit.text = "Terminé"
+                        findViewById<LinearLayout>(R.id.ll_question).visibility= View.GONE
+                        findViewById<LinearLayout>(R.id.ll_good_answer).visibility= View.VISIBLE
                     } else {
                         btn_submit.text = "Prochaine question"
                         findViewById<LinearLayout>(R.id.ll_question).visibility= View.GONE

@@ -72,24 +72,12 @@ abstract class QuizDatabase: RoomDatabase() {
 
             val coursDAO = coursdao()
             val cours1 = Cours(1, "Communication digitale", "Innitiation")
-            val cours2 = Cours(2, "Communication digitale", "Compréhension")
-            val cours3 = Cours(3, "Communication digitale", "Maitrise")
-            val cours4 = Cours(4, "Créer son site web", "Innitiation")
-            val cours5 = Cours(5, "Créer son site web", "Compréhension")
-            val cours6 = Cours(6, "Créer son site web", "Maitrise")
-            val cours7 = Cours(7, "Programmation", "Innitiation")
-            val cours8 = Cours(8, "Programmation", "Compréhension")
-            val cours9 = Cours(9, "Programmation", "Maitrise")
+            val cours2 = Cours(2, "Créer son site web", "Innitiation")
+            val cours3 = Cours(3, "Programmation", "Innitiation")
             coursDAO.insertAll(
                 cours1,
                 cours2,
-                cours3,
-                cours4,
-                cours5,
-                cours6,
-                cours7,
-                cours8,
-                cours9
+                cours3
             )
 
             val questionDao = questiondao()
@@ -612,14 +600,14 @@ abstract class QuizDatabase: RoomDatabase() {
 
             val themecoursDAO = theme_coursdao()
             val themecours1 = ThemeCours(1,1,2)
-            val themecours2 = ThemeCours(2,2,6)
-            val themecours3 = ThemeCours(3,3,8)
-            val themecours4 = ThemeCours(4,4,3)
-            val themecours5 = ThemeCours(5,5,1)
-            val themecours6 = ThemeCours(6,6,4)
-            val themecours7 = ThemeCours(7,7,1)
-            val themecours8 = ThemeCours(8,8,5)
-            val themecours9 = ThemeCours(9,9,7)
+            val themecours2 = ThemeCours(2,1,6)
+            val themecours3 = ThemeCours(3,1,8)
+            val themecours4 = ThemeCours(4,2,3)
+            val themecours5 = ThemeCours(5,2,1)
+            val themecours6 = ThemeCours(6,2,4)
+            val themecours7 = ThemeCours(7,3,1)
+            val themecours8 = ThemeCours(8,3,5)
+            val themecours9 = ThemeCours(9,3,7)
             themecoursDAO.insertAll(
                 themecours1,
                 themecours2,

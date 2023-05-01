@@ -22,6 +22,7 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
     private var mQuestionList: List<Question>? = null
     private var mResponseList: List<Response>? = null
     private var mSelectedOptionPosition: Int = 0
+    private var goodResponse: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,7 +56,7 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         defaultOptionsView()
 
         findViewById<LinearLayout>(R.id.ll_good_answer).visibility= View.GONE
-        findViewById<LinearLayout>(R.id.ll_question).visibility= View.VISIBLE
+        findViewById<LinearLayout>(R.id.ll_response).visibility= View.VISIBLE
 
         btn_submit.text = "Répondre"
 
@@ -133,6 +134,7 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                     findViewById<TextView>(R.id.tv_feedback).text = question?.feedback
 
                     if(response!!.good_response) {
+                        goodResponse++
                         findViewById<TextView>(R.id.tv_title_feedback).text = "Bonne réponse"
                         findViewById<TextView>(R.id.tv_title_feedback).setTextColor(getResources().getColor(R.color.colorGoodResponse))
                     } else {
@@ -140,14 +142,26 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                         findViewById<TextView>(R.id.tv_title_feedback).setTextColor(getResources().getColor(R.color.colorBadResponse))
                     }
 
+                    findViewById<LinearLayout>(R.id.ll_response).visibility= View.GONE
+                    findViewById<LinearLayout>(R.id.ll_good_answer).visibility= View.VISIBLE
+
                     if (mCurrentPosition == mQuestionList!!.size) {
                         btn_submit.text = "Terminé"
+                        findViewById<LinearLayout>(R.id.ll_response).visibility= View.GONE
                         findViewById<LinearLayout>(R.id.ll_question).visibility= View.GONE
-                        findViewById<LinearLayout>(R.id.ll_good_answer).visibility= View.VISIBLE
+                        findViewById<LinearLayout>(R.id.ll_good_answer).visibility= View.GONE
+                        findViewById<LinearLayout>(R.id.ll_resume).visibility= View.VISIBLE
+
+                        if(goodResponse != 0) {
+                            findViewById<TextView>(R.id.tv_pourcentage).text = "Quizz correcte à " + (10 / goodResponse) + "%"
+                        } else {
+                            findViewById<TextView>(R.id.tv_pourcentage).text = "Quizz correcte à 0%"
+                        }
+                        findViewById<TextView>(R.id.tv_total_good_response).text = goodResponse.toString() + " bonnes réponses"
+                        findViewById<TextView>(R.id.tv_total_bad_response).text = (10 - goodResponse).toString() + " mauvaises réponses"
+
                     } else {
                         btn_submit.text = "Prochaine question"
-                        findViewById<LinearLayout>(R.id.ll_question).visibility= View.GONE
-                        findViewById<LinearLayout>(R.id.ll_good_answer).visibility= View.VISIBLE
                     }
                     mSelectedOptionPosition = 0
                 }

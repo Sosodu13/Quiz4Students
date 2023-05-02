@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.LinearLayout
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
@@ -19,7 +20,7 @@ import kotlinx.android.synthetic.main.activity_quiz_questions.*
 class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
 
     private var mCurrentPosition: Int = 1
-    private var mQuestionList: List<Question>? = null
+    private var mQuestionList: Array<Question>? = null
     private var mResponseList: List<Response>? = null
     private var mSelectedOptionPosition: Int = 0
     private var goodResponse: Int = 0
@@ -30,7 +31,12 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
 
         val db = QuizDatabase.getDatabase(this)
 
-        mQuestionList = db.questiondao().getAll()
+        mQuestionList = intent.getSerializableExtra("Questions") as Array<Question> ?: null
+        System.out.println(mQuestionList?.size)
+        mQuestionList?.forEach { System.out.println(it) }
+        findViewById<ProgressBar>(R.id.progressBar).max = mQuestionList!!.size
+
+        //mQuestionList = db.questiondao().getAll()
         setQuestion()
 
         tv_option_one.setOnClickListener(this)
@@ -39,8 +45,6 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         tv_option_four.setOnClickListener(this)
         tv_option_five.setOnClickListener(this)
         btn_submit.setOnClickListener(this)
-
-
     }
 
     @SuppressLint("SetTextI18n")
@@ -119,12 +123,21 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                             setQuestion()
                         }
                         else -> {
-                            Toast.makeText(
-                                this,
-                                "Vous avez terminé ce quizz !", Toast.LENGTH_SHORT
-                            ).show()
-                            val intent = Intent(this,MainActivity::class.java)
-                            startActivity(intent)
+                            if (btn_submit.text == "Terminer") {
+                                Toast.makeText(
+                                    this,
+                                    "Vous avez terminé ce quizz !", Toast.LENGTH_SHORT
+                                ).show()
+                                val intent = Intent(this, MainActivity::class.java)
+                                startActivity(intent)
+                            } else {
+                                findViewById<LinearLayout>(R.id.ll_response).visibility = View.GONE
+                                findViewById<LinearLayout>(R.id.ll_question).visibility = View.GONE
+                                findViewById<LinearLayout>(R.id.ll_good_answer).visibility = View.GONE
+                                findViewById<LinearLayout>(R.id.ll_resume).visibility = View.VISIBLE
+                                btn_submit.text = "Terminer"
+                            }
+
                         }
                     }
                 } else {
@@ -133,39 +146,44 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
 
                     findViewById<TextView>(R.id.tv_feedback).text = question?.feedback
 
-                    if(response!!.good_response) {
+                    if (response!!.good_response) {
                         goodResponse++
                         findViewById<TextView>(R.id.tv_title_feedback).text = "Bonne réponse"
-                        findViewById<TextView>(R.id.tv_title_feedback).setTextColor(getResources().getColor(R.color.colorGoodResponse))
+                        findViewById<TextView>(R.id.tv_title_feedback).setTextColor(
+                            getResources().getColor(
+                                R.color.colorGoodResponse
+                            )
+                        )
                     } else {
                         findViewById<TextView>(R.id.tv_title_feedback).text = "Mauvaise réponse"
-                        findViewById<TextView>(R.id.tv_title_feedback).setTextColor(getResources().getColor(R.color.colorBadResponse))
+                        findViewById<TextView>(R.id.tv_title_feedback).setTextColor(
+                            getResources().getColor(
+                                R.color.colorBadResponse
+                            )
+                        )
                     }
 
-                    findViewById<LinearLayout>(R.id.ll_response).visibility= View.GONE
-                    findViewById<LinearLayout>(R.id.ll_good_answer).visibility= View.VISIBLE
+                    findViewById<LinearLayout>(R.id.ll_response).visibility = View.GONE
+                    findViewById<LinearLayout>(R.id.ll_good_answer).visibility = View.VISIBLE
 
                     if (mCurrentPosition == mQuestionList!!.size) {
-                        btn_submit.text = "Terminé"
-                        findViewById<LinearLayout>(R.id.ll_response).visibility= View.GONE
-                        findViewById<LinearLayout>(R.id.ll_question).visibility= View.GONE
-                        findViewById<LinearLayout>(R.id.ll_good_answer).visibility= View.GONE
-                        findViewById<LinearLayout>(R.id.ll_resume).visibility= View.VISIBLE
-
-                        if(goodResponse != 0) {
-                            findViewById<TextView>(R.id.tv_pourcentage).text = "Quizz correcte à " + (10 / goodResponse) + "%"
+                        btn_submit.text = "Résumé"
+                        if (goodResponse != 0) {
+                            findViewById<TextView>(R.id.tv_pourcentage).text =
+                                "Quizz correcte à " + (goodResponse * 100 / mQuestionList!!.size) + "%"
                         } else {
-                            findViewById<TextView>(R.id.tv_pourcentage).text = "Quizz correcte à 0%"
+                            findViewById<TextView>(R.id.tv_pourcentage).text =
+                                "Quizz correcte à 0%"
                         }
-                        findViewById<TextView>(R.id.tv_total_good_response).text = goodResponse.toString() + " bonnes réponses"
-                        findViewById<TextView>(R.id.tv_total_bad_response).text = (10 - goodResponse).toString() + " mauvaises réponses"
-
+                        findViewById<TextView>(R.id.tv_total_good_response).text =
+                            goodResponse.toString() + " bonnes réponses"
+                        findViewById<TextView>(R.id.tv_total_bad_response).text =
+                            (mQuestionList!!.size - goodResponse).toString() + " mauvaises réponses"
                     } else {
                         btn_submit.text = "Prochaine question"
                     }
                     mSelectedOptionPosition = 0
                 }
-
             }
         }
     }

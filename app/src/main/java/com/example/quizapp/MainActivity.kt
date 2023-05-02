@@ -26,24 +26,22 @@ class MainActivity : AppCompatActivity() {
         val db = QuizDatabase.getDatabase(this)
         db.seed()
 
+        val questionDao = db.questiondao()
         val conceptDao = db.conceptdao()
+        val coursDao = db.coursdao()
 
         val conceptList = conceptDao.getAll()
-
         if(conceptList.count() > 0){
             val recyclerView = findViewById<RecyclerView>(R.id.lv_concept)
             recyclerView.layoutManager = LinearLayoutManager(this)
-            recyclerView.adapter = ListConceptAccueilAdapter(this,conceptList!!/*,conceptDao*/)
+            recyclerView.adapter = ListConceptAccueilAdapter(this,conceptList!!, questionDao, conceptDao)
         }
 
-        val coursDao = db.coursdao()
-
         val coursList = coursDao.getAll()
-
         if(coursList.count() > 0){
             val recyclerView = findViewById<RecyclerView>(R.id.lv_cours)
             recyclerView.layoutManager = LinearLayoutManager(this)
-            recyclerView.adapter = ListCoursAccueilAdapter(this,coursList!!/*,conceptDao*/)
+            recyclerView.adapter = ListCoursAccueilAdapter(this,coursList!!,questionDao, coursDao)
         }
 
         findViewById<Button>(R.id.btn_accueil_to_concept).setOnClickListener {
@@ -55,6 +53,13 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, CoursActivity::class.java)
             startActivity(intent)
         }
+
+        val questionList = questionDao.getWithoutFilter()
+        findViewById<Button>(R.id.btn_start_from_home).setOnClickListener {
+            val intent = Intent(this, QuizQuestionsActivity::class.java)
+            intent.putExtra("Questions", questionList.toTypedArray())
+            startActivity(intent)
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,10 +68,5 @@ class MainActivity : AppCompatActivity() {
 
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
 
-        btn_start.setOnClickListener {
-            val intent = Intent(this, QuizQuestionsActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
     }
 }

@@ -1,6 +1,7 @@
 package com.example.quizapp
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
@@ -116,8 +117,19 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
             }
             R.id.btn_submit -> {
                 if (mSelectedOptionPosition == 0) {
-                    mCurrentPosition++
+                    if (btn_submit.text == "Répondre") {
+                        val dlg = AlertDialog.Builder(this)
 
+                        dlg.setTitle("Attention !")
+                        dlg.setMessage("Il faut saisir une réponse !")
+                        dlg.setPositiveButton(R.string.close) { dialog, _ ->
+                            dialog.dismiss()
+                        }
+                        dlg.show()
+
+                    }else{
+                        mCurrentPosition++
+                    }
                     when {
                         mCurrentPosition <= mQuestionList!!.size -> {
                             setQuestion()
@@ -143,6 +155,9 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                 } else {
                     val question = mQuestionList?.get(mCurrentPosition - 1)
                     val response = mResponseList?.get(mSelectedOptionPosition - 1)
+
+                    System.out.println(question)
+                    System.out.println(response)
 
                     findViewById<TextView>(R.id.tv_feedback).text = question?.feedback
 
@@ -172,13 +187,10 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                             findViewById<TextView>(R.id.tv_pourcentage).text =
                                 "Quizz correcte à " + (goodResponse * 100 / mQuestionList!!.size) + "%"
                         } else {
-                            findViewById<TextView>(R.id.tv_pourcentage).text =
-                                "Quizz correcte à 0%"
+                            findViewById<TextView>(R.id.tv_pourcentage).text = "Quizz correcte à 0%"
                         }
-                        findViewById<TextView>(R.id.tv_total_good_response).text =
-                            goodResponse.toString() + " bonnes réponses"
-                        findViewById<TextView>(R.id.tv_total_bad_response).text =
-                            (mQuestionList!!.size - goodResponse).toString() + " mauvaises réponses"
+                        findViewById<TextView>(R.id.tv_total_good_response).text = goodResponse.toString() + " bonnes réponses"
+                        findViewById<TextView>(R.id.tv_total_bad_response).text = (mQuestionList!!.size - goodResponse).toString() + " mauvaises réponses"
                     } else {
                         btn_submit.text = "Prochaine question"
                     }

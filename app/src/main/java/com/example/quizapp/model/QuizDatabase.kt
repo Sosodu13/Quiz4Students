@@ -47,16 +47,16 @@ abstract class QuizDatabase: RoomDatabase() {
             )
 
             val conceptDAO = conceptdao()
-            val concept1 = Concept(1, "Programmation", "Innitiation")
-            val concept2 = Concept(2, "Big Data", "Compréhension")
-            val concept3 = Concept(3, "Droit", "Maitrise")
-            val concept4 = Concept(4, "Economie numérique", "Innitiation")
-            val concept5 = Concept(5, "Entreprise X.0", "Compréhension")
-            val concept6 = Concept(6, "Fin Tech", "Maitrise")
-            val concept7 = Concept(7, "IA", "Innitiation")
-            val concept8 = Concept(8, "Innovation technologique", "Compréhension")
-            val concept9 = Concept(9, "Sécurité informatique", "Maitrise")
-            val concept10 = Concept(10, "Communication", "Innitiation")
+            val concept1 = Concept(1, "Programmation", "Non commencé")
+            val concept2 = Concept(2, "Big Data", "Non commencé")
+            val concept3 = Concept(3, "Droit", "Non commencé")
+            val concept4 = Concept(4, "Economie numérique", "Non commencé")
+            val concept5 = Concept(5, "Entreprise X.0", "Non commencé")
+            val concept6 = Concept(6, "Fin Tech", "Non commencé")
+            val concept7 = Concept(7, "IA", "Non commencé")
+            val concept8 = Concept(8, "Innovation technologique", "Non commencé")
+            val concept9 = Concept(9, "Sécurité informatique", "Non commencé")
+            val concept10 = Concept(10, "Communication", "Non commencé")
             conceptDAO.insertAll(
                 concept1,
                 concept2,

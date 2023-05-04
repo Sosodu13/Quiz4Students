@@ -14,10 +14,10 @@
         <activity android:name=".ConceptActivity"
             android:theme="@style/NoActionBarTheme"
             />
-        <activity android:name=".CoursActivity" android:theme="@style/NoActionBarTheme"
+        <activity android:name=".QuizQuestionsActivity"
+            android:theme="@style/NoActionBarTheme"
             />
-        <activity
-            android:name=".QuizQuestionsActivity"
+        <activity android:name=".CoursActivity"
             android:theme="@style/NoActionBarTheme"
             />
         <activity
@@ -34,10 +34,6 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-
-        <uses-library
-            android:name="org.apache.http.legacy"
-            android:required="false" />
     </application>
 
 </manifest>

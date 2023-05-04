@@ -14,4 +14,6 @@ interface CoursDAO {
     @Insert
     fun insertAll(vararg cours: Cours)
 
+    @Query("SELECT * FROM cours LIMIT 1 OFFSET :position")
+    fun getByPosition(position: Int): Cours?
 }

@@ -7,41 +7,27 @@ import android.view.View
 import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.quizapp.model.QuizDatabase
 import com.example.quizapp.model.data.Concept
+import com.example.quizapp.model.data.ConceptChecked
 import com.example.quizapp.model.data.Cours
 
 class ConceptActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
-        // val db = EnterpriseDatabase.getDatabase(this)
-        // val etablissementDao = db.etablissementDao()
+        val db = QuizDatabase.getDatabase(this)
+        val conceptDao = db.conceptdao()
+        val questionDao = db.questiondao()
 
-        val conceptList = ArrayList<Concept>()
+        val conceptList = conceptDao.getAll()
+        val concecptCheckList = conceptList.map { concept -> ConceptChecked(concept, false) }
 
-        val question1 = Concept(
-            1,
-            "Programmation",
-            "Initiation"
-        )
-        conceptList.add(question1)
-        val question2 = Concept(
-            2,
-            "Communication",
-            "Compréhension"
-        )
-        conceptList.add(question2)
-        val question3 = Concept(
-            3,
-            "Entreprise X.0",
-            "Maîtrise"
-        )
-        conceptList.add(question3)
-
+        val adapter = ListConceptAdapter(this,concecptCheckList!!/*,conceptDao*/)
         if(conceptList.count() > 0){
             val recyclerView = findViewById<RecyclerView>(R.id.lv_concept)
             recyclerView.layoutManager = LinearLayoutManager(this)
-            recyclerView.adapter = ListConceptAdapter(this,conceptList!!/*,conceptDao*/)
+            recyclerView.adapter = adapter
         }
 
         findViewById<Button>(R.id.btn_concept_to_accueil).setOnClickListener {
@@ -52,6 +38,32 @@ class ConceptActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btn_concept_to_cours).setOnClickListener {
             val intent = Intent(this, CoursActivity::class.java)
             startActivity(intent)
+        }
+
+
+        findViewById<Button>(R.id.btn_start_from_concept).setOnClickListener {
+            var questionList = questionDao.getWithoutFilter()
+            val conceptList = concecptCheckList.filter { it.checked }.map { it.concept }
+
+            if(conceptList.size != 0){
+                var stringIdConcept = ""
+                var arrayId = ArrayList<Long?>();
+                var cpt = 0
+                conceptList.forEach {
+                    cpt ++
+                    stringIdConcept += it.id
+                    arrayId.add(it.id)
+                    if(cpt != conceptList.size) {
+                        stringIdConcept += ", "
+                    }
+                }
+                questionList = questionDao.getQuestionsByConceptIdArray(arrayId.toTypedArray())
+            }
+
+            val intent = Intent(this, QuizQuestionsActivity::class.java)
+            intent.putExtra("Questions", questionList.toTypedArray())
+            startActivity(intent)
+            finish()
         }
     }
 

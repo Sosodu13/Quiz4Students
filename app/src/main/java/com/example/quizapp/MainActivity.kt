@@ -23,57 +23,26 @@ class MainActivity : AppCompatActivity() {
         // val db = EnterpriseDatabase.getDatabase(this)
         // val etablissementDao = db.etablissementDao()
 
-        QuizDatabase.getDatabase(this)
+        val db = QuizDatabase.getDatabase(this)
+        db.seed()
 
-        val conceptList = ArrayList<Concept>()
+        val questionDao = db.questiondao()
+        val conceptDao = db.conceptdao()
+        val coursDao = db.coursdao()
 
-        val question1 = Concept(
-            1,
-            "Programmation",
-            "Initiation"
-        )
-        conceptList.add(question1)
-        val question2 = Concept(
-            2,
-            "Communication",
-            "Compréhension"
-        )
-        conceptList.add(question2)
-        val question3 = Concept(
-            3,
-            "Entreprise X.0",
-            "Maîtrise"
-        )
-        conceptList.add(question3)
-
+        val conceptList = conceptDao.getAll()
         if(conceptList.count() > 0){
             val recyclerView = findViewById<RecyclerView>(R.id.lv_concept)
             recyclerView.layoutManager = LinearLayoutManager(this)
-            recyclerView.adapter = ListConceptAccueilAdapter(this,conceptList!!/*,conceptDao*/)
+            recyclerView.adapter = ListConceptAccueilAdapter(this,conceptList!!, questionDao, conceptDao)
         }
 
-
-        val coursList = ArrayList<Cours>()
-
-        val cours1 = Cours(
-            1,
-            "Créer son site web",
-            "Initiation"
-        )
-        coursList.add(cours1)
-        val cours2 = Cours(
-            2,
-            "Communication digitale",
-            "Compréhension"
-        )
-        coursList.add(cours2)
-
+        val coursList = coursDao.getAll()
         if(coursList.count() > 0){
             val recyclerView = findViewById<RecyclerView>(R.id.lv_cours)
             recyclerView.layoutManager = LinearLayoutManager(this)
-            recyclerView.adapter = ListCoursAccueilAdapter(this,coursList!!/*,conceptDao*/)
+            recyclerView.adapter = ListCoursAccueilAdapter(this,coursList!!,questionDao, coursDao)
         }
-
 
         findViewById<Button>(R.id.btn_accueil_to_concept).setOnClickListener {
             val intent = Intent(this, ConceptActivity::class.java)
@@ -84,6 +53,13 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, CoursActivity::class.java)
             startActivity(intent)
         }
+
+        val questionList = questionDao.getWithoutFilter()
+        findViewById<Button>(R.id.btn_start_from_home).setOnClickListener {
+            val intent = Intent(this, QuizQuestionsActivity::class.java)
+            intent.putExtra("Questions", questionList.toTypedArray())
+            startActivity(intent)
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -92,10 +68,5 @@ class MainActivity : AppCompatActivity() {
 
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
 
-        btn_start.setOnClickListener {
-            val intent = Intent(this, QuizQuestionsActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
     }
 }

@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Documents/Esimed3/Cours/Gestion de projet/Projet/app/src/main/res/layout/activity_quiz_questions.xml" value="0.25" />
+        <entry key="..\:/Documents/Esimed3/Cours/Gestion de projet/Projet/app/src/main/res/layout/concept_cell.xml" value="0.358695652173913" />
         <entry key="..\:/Esimed 3/Projet/QuizApp-master/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
         <entry key="..\:/Esimed 3/Projet/QuizApp-master/app/src/main/res/layout/activity_quiz_questions.xml" value="0.22826086956521738" />
       </map>

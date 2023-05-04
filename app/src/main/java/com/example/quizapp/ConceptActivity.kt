@@ -11,6 +11,7 @@ import com.example.quizapp.model.QuizDatabase
 import com.example.quizapp.model.data.Concept
 import com.example.quizapp.model.data.ConceptChecked
 import com.example.quizapp.model.data.Cours
+import kotlinx.android.synthetic.main.activity_concept.*
 
 class ConceptActivity : AppCompatActivity() {
     override fun onResume() {
@@ -21,6 +22,14 @@ class ConceptActivity : AppCompatActivity() {
         val questionDao = db.questiondao()
 
         val conceptList = conceptDao.getAll()
+
+        //Mise à jour de la progression
+        tv_total_concept_non_commence.text = conceptDao.getSumByTag("Non commencé").toString()
+        tv_total_concept_initiation.text = conceptDao.getSumByTag("Initiation").toString()
+        tv_total_concept_comprehension.text = conceptDao.getSumByTag("Compréhension").toString()
+        tv_total_concept_maitrise.text = conceptDao.getSumByTag("Maîtrise").toString()
+
+
         val concecptCheckList = conceptList.map { concept -> ConceptChecked(concept, false) }
 
         val adapter = ListConceptAdapter(this,concecptCheckList!!/*,conceptDao*/)

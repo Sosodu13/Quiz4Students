@@ -14,6 +14,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.example.quizapp.model.QuizDatabase
+import com.example.quizapp.model.data.Concept
 import com.example.quizapp.model.data.Question
 import com.example.quizapp.model.data.Response
 import kotlinx.android.synthetic.main.activity_quiz_questions.*
@@ -33,11 +34,8 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         val db = QuizDatabase.getDatabase(this)
 
         mQuestionList = intent.getSerializableExtra("Questions") as Array<Question> ?: null
-        System.out.println(mQuestionList?.size)
-        mQuestionList?.forEach { System.out.println(it) }
         findViewById<ProgressBar>(R.id.progressBar).max = mQuestionList!!.size
 
-        //mQuestionList = db.questiondao().getAll()
         setQuestion()
 
         tv_option_one.setOnClickListener(this)
@@ -126,8 +124,7 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                             dialog.dismiss()
                         }
                         dlg.show()
-
-                    }else{
+                    } else {
                         mCurrentPosition++
                     }
                     when {
@@ -136,6 +133,32 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                         }
                         else -> {
                             if (btn_submit.text == "Terminer") {
+                                val conceptList = db.conceptdao().getAll()
+
+                                conceptList.forEach {
+                                    val total_watched = db.conceptdao().getCountWatchedQuestion(it.id)
+                                    var concept_watched = false
+                                    if (total_watched > 0) {
+                                        concept_watched = true
+                                    }
+
+                                    val total_question = db.conceptdao().getCountQuestionByConceptd(it.id)
+                                    val total_validated = db.conceptdao().getCountQuestionValidated(it.id)
+                                    val purcentage = (total_validated * 100) / total_question
+
+                                    if (purcentage == 0 && concept_watched == false) {
+                                        it.tag = "Non commencé"
+                                    } else if (purcentage < 50){
+                                        it.tag = "Initiation"
+                                    } else if (purcentage >= 50 && purcentage < 70){
+                                        it.tag = "Compréhension"
+                                    } else if (purcentage >= 70) {
+                                        it.tag = "Maîtrise"
+                                    }
+                                    //update tag
+                                    db.conceptdao().update(it)
+                                }
+
                                 Toast.makeText(
                                     this,
                                     "Vous avez terminé ce quizz !", Toast.LENGTH_SHORT
@@ -145,7 +168,8 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                             } else {
                                 findViewById<LinearLayout>(R.id.ll_response).visibility = View.GONE
                                 findViewById<LinearLayout>(R.id.ll_question).visibility = View.GONE
-                                findViewById<LinearLayout>(R.id.ll_good_answer).visibility = View.GONE
+                                findViewById<LinearLayout>(R.id.ll_good_answer).visibility =
+                                    View.GONE
                                 findViewById<LinearLayout>(R.id.ll_resume).visibility = View.VISIBLE
                                 btn_submit.text = "Terminer"
                             }
@@ -156,12 +180,11 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                     val question = mQuestionList?.get(mCurrentPosition - 1)
                     val response = mResponseList?.get(mSelectedOptionPosition - 1)
 
-                    System.out.println(question)
-                    System.out.println(response)
-
                     findViewById<TextView>(R.id.tv_feedback).text = question?.feedback
 
+                    question?.watched = true;
                     if (response!!.good_response) {
+                        question?.validated = true
                         goodResponse++
                         findViewById<TextView>(R.id.tv_title_feedback).text = "Bonne réponse"
                         findViewById<TextView>(R.id.tv_title_feedback).setTextColor(
@@ -170,6 +193,7 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                             )
                         )
                     } else {
+                        question?.validated = false
                         findViewById<TextView>(R.id.tv_title_feedback).text = "Mauvaise réponse"
                         findViewById<TextView>(R.id.tv_title_feedback).setTextColor(
                             getResources().getColor(
@@ -177,6 +201,7 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                             )
                         )
                     }
+                    db.questiondao().update(question!!)
 
                     findViewById<LinearLayout>(R.id.ll_response).visibility = View.GONE
                     findViewById<LinearLayout>(R.id.ll_good_answer).visibility = View.VISIBLE
@@ -189,8 +214,10 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                         } else {
                             findViewById<TextView>(R.id.tv_pourcentage).text = "Quizz correcte à 0%"
                         }
-                        findViewById<TextView>(R.id.tv_total_good_response).text = goodResponse.toString() + " bonnes réponses"
-                        findViewById<TextView>(R.id.tv_total_bad_response).text = (mQuestionList!!.size - goodResponse).toString() + " mauvaises réponses"
+                        findViewById<TextView>(R.id.tv_total_good_response).text =
+                            goodResponse.toString() + " bonnes réponses"
+                        findViewById<TextView>(R.id.tv_total_bad_response).text =
+                            (mQuestionList!!.size - goodResponse).toString() + " mauvaises réponses"
                     } else {
                         btn_submit.text = "Prochaine question"
                     }

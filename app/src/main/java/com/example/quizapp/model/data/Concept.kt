@@ -8,7 +8,7 @@ import java.io.Serializable
 data class Concept(
     @PrimaryKey(autoGenerate = true) var id: Long? = null,
     val libel: String,
-    val tag: String,
+    var tag: String,
 ): Serializable {
 
 }

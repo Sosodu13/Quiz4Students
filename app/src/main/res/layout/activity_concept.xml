@@ -118,6 +118,7 @@
 
 
                     <TextView
+                        android:id="@+id/tv_total_concept_initiation"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_column="2"
@@ -133,11 +134,12 @@
                         android:layout_column="0"
                         android:fontFamily="@font/roboto_light"
                         android:gravity="center"
-                        android:text="Copréhension"
+                        android:text="Compréhension"
                         android:textColor="#7A8089"
                         android:textSize="16sp" />
 
                     <TextView
+                        android:id="@+id/tv_total_concept_comprehension"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_column="2"
@@ -158,6 +160,7 @@
                         android:textSize="16sp" />
 
                     <TextView
+                        android:id="@+id/tv_total_concept_maitrise"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_column="2"
@@ -173,11 +176,12 @@
                         android:layout_column="0"
                         android:fontFamily="@font/roboto_light"
                         android:gravity="center"
-                        android:text="Oublié"
+                        android:text="Non commencé"
                         android:textColor="#7A8089"
                         android:textSize="16sp" />
 
                     <TextView
+                        android:id="@+id/tv_total_concept_non_commence"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_column="2"

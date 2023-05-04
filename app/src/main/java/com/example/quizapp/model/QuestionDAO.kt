@@ -3,6 +3,7 @@ package com.example.quizapp.model
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Update
 import com.example.quizapp.model.data.Question
 
 @Dao
@@ -27,4 +28,7 @@ interface QuestionDAO {
 
     @Insert
     fun insertAll(vararg questions: Question)
+
+    @Update
+    fun update(question: Question)
 }

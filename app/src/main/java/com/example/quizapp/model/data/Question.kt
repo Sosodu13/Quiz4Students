@@ -9,7 +9,8 @@ data class Question(
     @PrimaryKey(autoGenerate = true) var id:Long? = null,
     val question: String,
     val feedback: String,
-    val validated: Boolean,
+    var validated: Boolean,
+    var watched: Boolean,
     val concept_id: Long,
 ): Serializable {
 

@@ -126,7 +126,6 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                             dialog.dismiss()
                         }
                         dlg.show()
-
                     }else{
                         mCurrentPosition++
                     }
@@ -161,7 +160,9 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
 
                     findViewById<TextView>(R.id.tv_feedback).text = question?.feedback
 
+                    question?.watched = true;
                     if (response!!.good_response) {
+                        question?.validated = true
                         goodResponse++
                         findViewById<TextView>(R.id.tv_title_feedback).text = "Bonne réponse"
                         findViewById<TextView>(R.id.tv_title_feedback).setTextColor(
@@ -170,6 +171,7 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                             )
                         )
                     } else {
+                        question?.validated = false
                         findViewById<TextView>(R.id.tv_title_feedback).text = "Mauvaise réponse"
                         findViewById<TextView>(R.id.tv_title_feedback).setTextColor(
                             getResources().getColor(
@@ -177,6 +179,7 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                             )
                         )
                     }
+                    db.questiondao().update(question!!)
 
                     findViewById<LinearLayout>(R.id.ll_response).visibility = View.GONE
                     findViewById<LinearLayout>(R.id.ll_good_answer).visibility = View.VISIBLE

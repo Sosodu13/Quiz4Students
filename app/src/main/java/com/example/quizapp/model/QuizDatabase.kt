@@ -84,12 +84,14 @@ abstract class QuizDatabase: RoomDatabase() {
             val question1 = Question(1,
                 "Alice travaille sur un projet de développement logiciel et elle utilise 'Python' comme langage de programmation pour coder ce projet. A quoi lui sert son éditeur de texte ?",
                 "F1",
-                true,
+                false,
+                false,
                 1
             )
             val question2 = Question(2,
                 "Candice travaille sur un projet de développement logiciel. Elle utilise 'Java' comme langage de programmation pour coder ce projet. Elle doit recourir à un programme informatique qui s'appelle interpréteur pour :",
                 "F2",
+                false,
                 false,
                 1
             )
@@ -97,11 +99,13 @@ abstract class QuizDatabase: RoomDatabase() {
                 "Romane décide de prendre un serveur virtuel chez un opérateur cloud comme 'OVHcloud' afin d'héberger son site web de e-commerce. Quel est l’avantage de ce choix ?",
                 "F3",
                 false,
+                false,
                 1
             )
             val question4 = Question(4,
                 "Le référencement SEO ( Search Engine Optimization) est un ensemble de techniques qui permettent de positionner un site dans les premiers résultats naturels (c'est-à-dire non payants) des moteurs de recherche. Vanessa souhaite améliorer le référencement SEO de son site internet, pourquoi ?",
                 "F4",
+                false,
                 false,
                 10
             )
@@ -109,11 +113,13 @@ abstract class QuizDatabase: RoomDatabase() {
                 "Julie a créé une super vidéo et elle souhaite la partager sur tous ses réseaux sociaux, est ce que c'est une bonne idée ?",
                 "F5",
                 false,
+                false,
                 10
             )
             val question6 = Question(6,
                 "Chahinez a écrit un article très intéressant sur LinkedIn mais se demande à quelle heure elle doit le publier pour avoir le maximum de réactions",
                 "F6",
+                false,
                 false,
                 10
             )
@@ -121,11 +127,13 @@ abstract class QuizDatabase: RoomDatabase() {
                 "Hugo a reçu un mail de l’équipe l’IT support dans son entreprise qui dit  «Attention: tentative de «phishing» avec l'email du directeur ».  A votre avis, qu'est-ce que cela signifie ?",
                 "F7",
                 false,
+                false,
                 9
             )
             val question8 = Question(8,
                 "Magali lance son entreprise et elle doit assurer la confidentialité de ses données. A votre avis, qu'est-ce que cela signifie ?",
                 "F8",
+                false,
                 false,
                 9
             )
@@ -133,11 +141,13 @@ abstract class QuizDatabase: RoomDatabase() {
                 "Myriam est dans la bibliothèque de son école, elle consulte le site de son compte bancaire via un ordinateur fixe disponible. Le navigateur « Google Chrome » lui propose d'enregistre son mot de passe pour ce site, doit-elle accepter ?",
                 "F9",
                 false,
+                false,
                 9
             )
             val question10 = Question(10,
                 "Flavia visite un site commercial. Un 'chatbot'  apparaît avec le message suivant : 'Bonjour! Posez-nous vos questions'. Il s'agit de :",
                 "F10",
+                false,
                 false,
                 7
             )
@@ -145,11 +155,13 @@ abstract class QuizDatabase: RoomDatabase() {
                 "Alice discute avec Johan à propos des voitures intelligentes. Elle lui explique qu'elles utilisent la technologie de l’intelligence artificielle pour partager des informations et communiquer entre elles  afin de mieux se déplacer dans la circulation. Johan enrichit cette discussion avec d'autres exemples correspondant également à des technologies d’IA. Il parle de :",
                 "F11",
                 false,
+                false,
                 7
             )
             val question12 = Question(12,
                 "L'intelligence artificielle (IA) est « l'ensemble des théories et des techniques mises en œuvre en vue de réaliser des machines capables de simuler l'intelligence humaine ». Dans cette définition, à quoi fait référence le terme 'intelligence' ?",
                 "F12",
+                false,
                 false,
                 7
             )
@@ -157,11 +169,13 @@ abstract class QuizDatabase: RoomDatabase() {
                 "Slim travaille sur un projet en « informatique décisionnelle/ business intelligence ». Dans le cadre de ce projet, des données volumineuses sont disponibles dans la base de données de l’entreprise mais difficilement exploitables par les directeurs. Slim va donc créer des tableaux de bord pour chacun, présentant les informations les plus pertinentes pour chaque direction. A votre avis, quel est l'intérêt de ce type de démarche ?",
                 "F13",
                 false,
+                false,
                 2
             )
             val question14 = Question(14,
                 "Hugo a lancé son entreprise l’année dernière et il souhaite mettre en place une stratégie 'data driven'. Cette stratégie consiste à prendre toutes les décisions en se basant sur les données et non sur des analyses ou des perceptions puis les partager à toute l'entreprise. Quel est l'intérêt d'une telle démarche ?",
                 "F14",
+                false,
                 false,
                 2
             )
@@ -169,11 +183,13 @@ abstract class QuizDatabase: RoomDatabase() {
                 "Yasser a besoin de créer un reporting qui inclut les données liées à l'activité d'approvisionnement de ce matin. Chris lui indique qu'il devra attendre demain car les données ne sont pas encore dans le datawarehouse. A votre avis qu'est-ce que ça veut dire ?",
                 "F15",
                 false,
+                false,
                 2
             )
             val question16 = Question(16,
                 "Le terme entreprise X.0 (2.0, 3.0 ou 4.0)  fait référence aux entreprises connectées et à l'utilisation des nouvelles technologies :",
                 "F16",
+                false,
                 false,
                 5
             )
@@ -181,11 +197,13 @@ abstract class QuizDatabase: RoomDatabase() {
                 "Antoine travaille sur un projet de construction d'un nouvel entrepôt, il fait appel à des spécialistes qui pourront créer le contenu BIM pour son projet. De quoi s'agit-il ?",
                 "F17",
                 false,
+                false,
                 5
             )
             val question18 = Question(18,
                 "Jean souhaite transformer et digitaliser son entreprise. Il pense à remplacer les employés sur la chaîne de production par des robots. Que doit-il faire ?",
                 "F18",
+                false,
                 false,
                 5
             )
@@ -193,11 +211,13 @@ abstract class QuizDatabase: RoomDatabase() {
                 "Singapour, Zurich, Oslo, Nantes, Lyon et Montpellier sont considérées comme des exemples de «smart city ». Pourquoi ?",
                 "F19",
                 false,
+                false,
                 8
             )
             val question20 = Question(20,
                 "Alex habite actuellement à Bordeaux et il cherche un appartement pour déménager sur Marseille. Comme il ne pourra pas se déplacer, l’agent immobilier lui propose de se rendre dans les locaux de l’agence à Bordeaux pour faire une visite virtuelle en utilisant un casque VR. De quel type de commerce s'agit-il ?",
                 "F20",
+                false,
                 false,
                 8
             )
@@ -205,11 +225,13 @@ abstract class QuizDatabase: RoomDatabase() {
                 "Valerya affirme à Quentin que les grands groupes ont du mal à innover. Quentin n'est pas d'accord. Il explique que :",
                 "F21",
                 false,
+                false,
                 8
             )
             val question22 = Question(22,
                 "Le covoiturage est-il un exemple d'économie collaborative ?",
                 "F23",
+                false,
                 false,
                 4
             )
@@ -217,11 +239,13 @@ abstract class QuizDatabase: RoomDatabase() {
                 "Pourquoi la santé semble-t-elle un domaine pertinent pour déployer des objets connectés ?",
                 "F23",
                 false,
+                false,
                 4
             )
             val question24 = Question(24,
                 "En économie, la disruption désigne le bouleversement d'un marché sur lequel les positions sont établies avec une stratégie inédite. Que nous apprend 'Netflix' sur la disruption ?",
                 "F24",
+                false,
                 false,
                 4
             )
@@ -229,11 +253,13 @@ abstract class QuizDatabase: RoomDatabase() {
                 "Eli souhaite faire une première levée de fonds pour son entreprise de granulés pour poêles à bois qui ne dégagent pas de CO2. Léa lui propose de se tourner vers le crowdfunding, avec par exemple Wiseed, afin que des particuliers et entrepreneurs puissent investir dans son entreprise. Pourquoi ?",
                 "F25",
                 false,
+                false,
                 6
             )
             val question26 = Question(26,
                 "Comment la blockchain par proof of work permet de se passer d’un tiers de confiance (tels que les banques) ?",
                 "F26",
+                false,
                 false,
                 6
             )
@@ -241,11 +267,13 @@ abstract class QuizDatabase: RoomDatabase() {
                 "Comment la blockchain par proof of work vérifie qu’une demande de transfert d’argent d’un compte à un autre est légitime ?",
                 "F27",
                 false,
+                false,
                 6
             )
             val question28 = Question(28,
                 "Alice a acheté pour chez elle une machine à café sur internet. Malheureusement, cette dernière ne fonctionne pas. Quel est le délai de rétractation d'un particulier pour renvoyer un article acheté sur internet ?",
                 "F28",
+                false,
                 false,
                 3
             )
@@ -253,11 +281,13 @@ abstract class QuizDatabase: RoomDatabase() {
                 "Kaspar veut créer un site internet pour sa société commerciale. Selon la loi, il doit obligatoirement préciser :",
                 "F29",
                 false,
+                false,
                 3
             )
             val question30 = Question(30,
                 "Valerya vient d'inventer un système de validation de contrats chiffrés et impossible à modifier sur un système de blockchain respectueux de l'environnement. Valerya devrait-elle déposer un brevet pour protéger son invention ?",
                 "F30",
+                false,
                 false,
                 3
             )

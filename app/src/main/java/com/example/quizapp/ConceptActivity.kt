@@ -51,6 +51,7 @@ class ConceptActivity : AppCompatActivity() {
 
 
         findViewById<Button>(R.id.btn_start_from_concept).setOnClickListener {
+            // lancement de reviser le meme filtre partout
             var questionList = questionDao.getWithoutFilter()
             val conceptList = concecptCheckList.filter { it.checked }.map { it.concept }
 

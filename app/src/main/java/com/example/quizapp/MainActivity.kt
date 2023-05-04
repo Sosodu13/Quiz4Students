@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        val conceptList = conceptDao.getAll()
+        val conceptList = conceptDao.getAllHome()
 
         conceptList.forEach {
             val total_question_oublie = conceptDao.getCountQuestionOublie(it.id)
@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        val coursList = coursDao.getAll()
+        val coursList = coursDao.getAllHome()
 
         coursList.forEach {
             val total_concept_oublie = coursDao.getCountConceptOublie(it.id)
@@ -80,12 +80,14 @@ class MainActivity : AppCompatActivity() {
         tv_total_concept_accueil_initiation.text = db.conceptdao().getSumByTag("Initiation").toString()
         tv_total_concept_accueil_comprehension.text = db.conceptdao().getSumByTag("Compréhension").toString()
         tv_total_concept_accueil_maitrise.text = db.conceptdao().getSumByTag("Maîtrise").toString()
+        tv_total_concept_accueil_oublie.text = db.conceptdao().getSumByTag("Oublié").toString()
 
 
         tv_total_cours_accueil_non_commence.text = db.coursdao().getSumByTag("Non commencé").toString()
         tv_total_cours_accueil_initiation.text = db.coursdao().getSumByTag("Initiation").toString()
         tv_total_cours_accueil_comprehension.text = db.coursdao().getSumByTag("Compréhension").toString()
         tv_total_cours_accueil_maitrise.text = db.coursdao().getSumByTag("Maîtrise").toString()
+        tv_total_cours_accueil_oublie.text = db.coursdao().getSumByTag("Oublié").toString()
 
         if(conceptListUpdate.count() > 0){
             val recyclerView = findViewById<RecyclerView>(R.id.lv_concept)

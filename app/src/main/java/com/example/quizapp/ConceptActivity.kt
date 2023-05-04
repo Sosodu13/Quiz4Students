@@ -28,6 +28,7 @@ class ConceptActivity : AppCompatActivity() {
         tv_total_concept_initiation.text = conceptDao.getSumByTag("Initiation").toString()
         tv_total_concept_comprehension.text = conceptDao.getSumByTag("Compréhension").toString()
         tv_total_concept_maitrise.text = conceptDao.getSumByTag("Maîtrise").toString()
+        tv_total_concept_oublie.text = conceptDao.getSumByTag("Oublié").toString()
 
 
         val concecptCheckList = conceptList.map { concept -> ConceptChecked(concept, false) }

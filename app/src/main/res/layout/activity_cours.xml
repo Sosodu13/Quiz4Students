@@ -61,9 +61,10 @@
 
     <RelativeLayout
         android:id="@+id/layout"
+        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_below="@+id/tv_title_list_concept"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content">>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/lv_cours"
@@ -182,6 +183,27 @@
 
                     <TextView
                         android:id="@+id/tv_total_cours_non_commence"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:fontFamily="@font/roboto_light"
+                        android:gravity="center"
+                        android:text="0"
+                        android:textColor="#7A8089"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="0"
+                        android:fontFamily="@font/roboto_light"
+                        android:gravity="center"
+                        android:text="Oublié"
+                        android:textColor="#7A8089"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_total_cours_oublie"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_column="2"

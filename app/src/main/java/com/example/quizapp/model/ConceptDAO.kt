@@ -10,10 +10,10 @@ import com.example.quizapp.model.data.Question
 
 @Dao
 interface ConceptDAO {
-    @Query("SELECT * FROM concept ORDER BY CASE WHEN concept.tag = 'Non commencé' THEN 1 WHEN concept.tag = 'Initiation' THEN 2 WHEN concept.tag = 'Compréhension' THEN 3 WHEN concept.tag = 'Maitrise' THEN 4 END ASC, random()")
+    @Query("SELECT * FROM concept ORDER BY CASE WHEN concept.tag = 'Non commencé' THEN 1 WHEN concept.tag = 'Oublié' THEN 2 WHEN concept.tag = 'Initiation' THEN 3 WHEN concept.tag = 'Compréhension' THEN 4 WHEN concept.tag = 'Maîtrise' THEN 5 END ASC, random()")
     fun getAll() : List<Concept>
 
-    @Query("SELECT * FROM concept ORDER BY CASE WHEN concept.tag = 'Initiation' THEN 1 WHEN concept.tag = 'Compréhension' THEN 2 WHEN concept.tag = 'Maitrise' THEN 3 WHEN concept.tag = 'Non commencé' THEN 4 END ASC, random()")
+    @Query("SELECT * FROM concept ORDER BY CASE WHEN concept.tag = 'Oublié' THEN 1 WHEN concept.tag = 'Initiation' THEN 2 WHEN concept.tag = 'Compréhension' THEN 3 WHEN concept.tag = 'Maîtrise' THEN 4 WHEN concept.tag = 'Non commencé' THEN 5 END ASC, random()")
     fun getAllHome() : List<Concept>
 
     @Insert

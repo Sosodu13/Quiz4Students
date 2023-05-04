@@ -279,6 +279,38 @@
                     android:text="0"
                     android:textColor="#7A8089"
                     android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:fontFamily="@font/roboto_light"
+                    android:gravity="center"
+                    android:text="Oublié"
+                    android:textColor="#7A8089"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_total_concept_accueil_oublie"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:fontFamily="@font/roboto_light"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="#7A8089"
+                    android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/tv_total_cours_accueil_oublie"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="3"
+                    android:fontFamily="@font/roboto_light"
+                    android:gravity="center"
+                    android:layout_marginStart="20dp"
+                    android:text="0"
+                    android:textColor="#7A8089"
+                    android:textSize="16sp" />
             </GridLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>

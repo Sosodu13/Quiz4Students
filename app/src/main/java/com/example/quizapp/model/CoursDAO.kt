@@ -9,10 +9,10 @@ import com.example.quizapp.model.data.Cours
 
 @Dao
 interface CoursDAO {
-    @Query("SELECT * FROM cours ORDER BY CASE WHEN cours.tag = 'Non commencé' THEN 1 WHEN cours.tag = 'Initiation' THEN 2 WHEN cours.tag = 'Compréhension' THEN 3 WHEN cours.tag = 'Maitrise' THEN 4 END ASC, random()")
+    @Query("SELECT * FROM cours ORDER BY CASE WHEN cours.tag = 'Non commencé' THEN 1 WHEN cours.tag = 'Oublié' THEN 2 WHEN cours.tag = 'Initiation' THEN 3 WHEN cours.tag = 'Compréhension' THEN 4 WHEN cours.tag = 'Maîtrise' THEN 5 END ASC, random()")
     fun getAll() : List<Cours>
 
-    @Query("SELECT * FROM cours ORDER BY CASE WHEN cours.tag = 'Maitrise' THEN 1 WHEN cours.tag = 'Compréhension' THEN 2 WHEN cours.tag = 'Initiation' THEN 3 WHEN cours.tag = 'Non commencé' THEN 4 END ASC, random()")
+    @Query("SELECT * FROM cours ORDER BY CASE WHEN cours.tag = 'Maîtrise' THEN 1 WHEN cours.tag = 'Compréhension' THEN 2 WHEN cours.tag = 'Initiation' THEN 3 WHEN cours.tag = 'Non commencé' THEN 4 END ASC, random()")
     fun getAllHome() : List<Cours>
 
     @Insert

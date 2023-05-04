@@ -29,7 +29,8 @@ class CoursActivity : AppCompatActivity() {
         tv_total_cours_initiation.text = coursDao.getSumByTag("Initiation").toString()
         tv_total_cours_comprehension.text = coursDao.getSumByTag("Compréhension").toString()
         tv_total_cours_maitrise.text = coursDao.getSumByTag("Maîtrise").toString()
-        
+        tv_total_cours_oublie.text = coursDao.getSumByTag("Oublié").toString()
+
         if(coursList.count() > 0){
             val recyclerView = findViewById<RecyclerView>(R.id.lv_cours)
             recyclerView.layoutManager = LinearLayoutManager(this)

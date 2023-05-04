@@ -68,7 +68,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val questionList = questionDao.getWithoutFilter()
+        val questionList = questionDao.getWithoutFilterHome()
         findViewById<Button>(R.id.btn_start_from_home).setOnClickListener {
             val intent = Intent(this, QuizQuestionsActivity::class.java)
             intent.putExtra("Questions", questionList.toTypedArray())

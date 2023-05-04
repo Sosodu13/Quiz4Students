@@ -72,6 +72,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+
             >
             <TextView
                 android:id="@+id/tv_option_one"
@@ -162,17 +163,54 @@
             android:gravity="center"
             android:text="Bonne réponse" />
 
-        <TextView
-            android:id="@+id/tv_feedback"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:fontFamily="@font/roboto"
-            android:padding="15dp"
-            android:textColor="#7A8089"
-            android:textSize="18sp"
-            tools:text="La bonne réponse était qfioshqfhdsfsqduhfqhsqdsuhfoqdshfoqsdhf">
-        </TextView>
+        <androidx.cardview.widget.CardView
+                android:id="@+id/card_response"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cv_good_answer"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="25dp"
+                android:text="Hello World!"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_bold"
+                        android:gravity="center"
+                        android:text="La bonne réponse est :"
+                        android:textColor="#363A43"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:columnCount="3">
+
+                        <TextView
+                            android:id="@+id/tv_good_response"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/roboto_light"
+                            android:gravity="center"
+                            android:text="bonne réponse"
+                            android:textColor="#8BC34A"
+                            android:textSize="16sp" />
+
+                    </GridLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
         </LinearLayout>
 
@@ -212,6 +250,9 @@
                 android:layout_marginBottom="35dp"
                 android:text="6 mauvaise réponse" />
         </LinearLayout>
+
+
+
         <Button
             android:id="@+id/btn_submit"
             android:layout_width="match_parent"

@@ -156,10 +156,13 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                     val question = mQuestionList?.get(mCurrentPosition - 1)
                     val response = mResponseList?.get(mSelectedOptionPosition - 1)
 
-                    System.out.println(question)
-                    System.out.println(response)
+                    for (res in mResponseList!!){
+                        if (res.good_response)
+                        {
+                            tv_good_response.text = res.libel
+                        }
+                    }
 
-                    findViewById<TextView>(R.id.tv_feedback).text = question?.feedback
 
                     if (response!!.good_response) {
                         goodResponse++

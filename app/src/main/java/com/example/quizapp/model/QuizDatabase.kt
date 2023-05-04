@@ -71,9 +71,9 @@ abstract class QuizDatabase: RoomDatabase() {
             )
 
             val coursDAO = coursdao()
-            val cours1 = Cours(1, "Communication digitale", "Innitiation")
-            val cours2 = Cours(2, "Créer son site web", "Innitiation")
-            val cours3 = Cours(3, "Programmation", "Innitiation")
+            val cours1 = Cours(1, "Communication digitale", "Non commencé")
+            val cours2 = Cours(2, "Créer son site web", "Non commencé")
+            val cours3 = Cours(3, "Programmation", "Non commencé")
             coursDAO.insertAll(
                 cours1,
                 cours2,

@@ -118,6 +118,7 @@
 
 
                     <TextView
+                        android:id="@+id/tv_total_cours_initiation"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_column="2"
@@ -138,6 +139,7 @@
                         android:textSize="16sp" />
 
                     <TextView
+                        android:id="@+id/tv_total_cours_comprehension"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_column="2"
@@ -158,6 +160,7 @@
                         android:textSize="16sp" />
 
                     <TextView
+                        android:id="@+id/tv_total_cours_maitrise"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_column="2"
@@ -178,6 +181,7 @@
                         android:textSize="16sp" />
 
                     <TextView
+                        android:id="@+id/tv_total_cours_non_commence"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_column="2"

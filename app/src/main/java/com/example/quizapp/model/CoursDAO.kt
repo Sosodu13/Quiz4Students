@@ -27,6 +27,9 @@ interface CoursDAO {
     @Query("SELECT COUNT(*) FROM question q  WHERE q.concept_id =:param AND q.validated = 1")
     fun getCountQuestionValidated(param:Long?) : Int
 
+    @Query("SELECT COUNT(*) FROM cours WHERE tag =:param")
+    fun getSumByTag(param:String?) : Int
+
     @Update
     fun update(cours: Cours)
 }

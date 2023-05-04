@@ -34,6 +34,12 @@ class MainActivity : AppCompatActivity() {
         tv_total_concept_accueil_comprehension.text = db.conceptdao().getSumByTag("Compréhension").toString()
         tv_total_concept_accueil_maitrise.text = db.conceptdao().getSumByTag("Maîtrise").toString()
 
+
+        tv_total_cours_accueil_non_commence.text = db.coursdao().getSumByTag("Non commencé").toString()
+        tv_total_cours_accueil_initiation.text = db.coursdao().getSumByTag("Initiation").toString()
+        tv_total_cours_accueil_comprehension.text = db.coursdao().getSumByTag("Compréhension").toString()
+        tv_total_cours_accueil_maitrise.text = db.coursdao().getSumByTag("Maîtrise").toString()
+
         val questionDao = db.questiondao()
         val conceptDao = db.conceptdao()
         val coursDao = db.coursdao()

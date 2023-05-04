@@ -44,14 +44,14 @@ class MainActivity : AppCompatActivity() {
         val conceptDao = db.conceptdao()
         val coursDao = db.coursdao()
 
-        val conceptList = conceptDao.getAll()
+        val conceptList = conceptDao.getAllHome()
         if(conceptList.count() > 0){
             val recyclerView = findViewById<RecyclerView>(R.id.lv_concept)
             recyclerView.layoutManager = LinearLayoutManager(this)
             recyclerView.adapter = ListConceptAccueilAdapter(this,conceptList!!, questionDao, conceptDao)
         }
 
-        val coursList = coursDao.getAll()
+        val coursList = coursDao.getAllHome()
         if(coursList.count() > 0){
             val recyclerView = findViewById<RecyclerView>(R.id.lv_cours)
             recyclerView.layoutManager = LinearLayoutManager(this)
@@ -68,7 +68,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val questionList = questionDao.getWithoutFilterHome()
+        val questionList = questionDao.getWithoutFilter()
         findViewById<Button>(R.id.btn_start_from_home).setOnClickListener {
             val intent = Intent(this, QuizQuestionsActivity::class.java)
             intent.putExtra("Questions", questionList.toTypedArray())

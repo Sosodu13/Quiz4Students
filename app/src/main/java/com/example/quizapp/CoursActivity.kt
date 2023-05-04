@@ -46,7 +46,7 @@ class CoursActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val questionList = questionDao.getWithoutFilterCours()
+        val questionList = questionDao.getWithoutFilter()
 
         findViewById<Button>(R.id.btn_start_from_cours).setOnClickListener {
             val intent = Intent(this, QuizQuestionsActivity::class.java)

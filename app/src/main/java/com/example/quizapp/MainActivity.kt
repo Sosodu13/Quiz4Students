@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.quizapp.model.QuizDatabase
 import com.example.quizapp.model.data.Concept
 import com.example.quizapp.model.data.Cours
+import kotlinx.android.synthetic.main.activity_concept.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -25,6 +26,13 @@ class MainActivity : AppCompatActivity() {
 
         val db = QuizDatabase.getDatabase(this)
         db.seed()
+
+
+        //Mise à jour de la progression
+        tv_total_concept_accueil_non_commence.text = db.conceptdao().getSumByTag("Non commencé").toString()
+        tv_total_concept_accueil_initiation.text = db.conceptdao().getSumByTag("Initiation").toString()
+        tv_total_concept_accueil_comprehension.text = db.conceptdao().getSumByTag("Compréhension").toString()
+        tv_total_concept_accueil_maitrise.text = db.conceptdao().getSumByTag("Maîtrise").toString()
 
         val questionDao = db.questiondao()
         val conceptDao = db.conceptdao()

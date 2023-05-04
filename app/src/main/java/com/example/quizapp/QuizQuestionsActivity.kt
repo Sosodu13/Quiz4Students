@@ -149,11 +149,11 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                                     if (purcentage == 0 && concept_watched == false) {
                                         it.tag = "Non commencé"
                                     } else if (purcentage < 50){
-                                        it.tag = "Initation"
+                                        it.tag = "Initiation"
                                     } else if (purcentage >= 50 && purcentage < 70){
-                                        it.tag = "Comprehension"
+                                        it.tag = "Compréhension"
                                     } else if (purcentage >= 70) {
-                                        it.tag = "Maitrîse"
+                                        it.tag = "Maîtrise"
                                     }
                                     //update tag
                                     db.conceptdao().update(it)

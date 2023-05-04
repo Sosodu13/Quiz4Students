@@ -18,13 +18,13 @@ interface CoursDAO {
     @Query("SELECT * FROM cours LIMIT 1 OFFSET :position")
     fun getByPosition(position: Int): Cours?
 
-    @Query("SELECT COUNT(*) FROM question q WHERE q.concept_id =:param AND  q.watched = 1")
+    @Query("SELECT COUNT(*) FROM question q LEFT JOIN concept co ON q.concept_id = co.id LEFT JOIN concepttheme ct ON co.id = ct.concept LEFT JOIN theme t ON t.id = ct.theme LEFT JOIN themecours tc ON tc.theme = t.id LEFT JOIN Cours c ON c.id = tc.cours WHERE c.id =:param AND  q.watched = 1")
     fun getCountWatchedQuestion(param:Long?) : Int
 
-    @Query("SELECT COUNT(*) FROM question q WHERE q.concept_id =:param")
+    @Query("SELECT COUNT(*) FROM question q LEFT JOIN concept co ON q.concept_id = co.id LEFT JOIN concepttheme ct ON co.id = ct.concept LEFT JOIN theme t ON t.id = ct.theme LEFT JOIN themecours tc ON tc.theme = t.id LEFT JOIN Cours c ON c.id = tc.cours WHERE c.id =:param")
     fun getCountQuestionByConceptd(param:Long?) : Int
 
-    @Query("SELECT COUNT(*) FROM question q  WHERE q.concept_id =:param AND q.validated = 1")
+    @Query("SELECT COUNT(*) FROM question q LEFT JOIN concept co ON q.concept_id = co.id LEFT JOIN concepttheme ct ON co.id = ct.concept LEFT JOIN theme t ON t.id = ct.theme LEFT JOIN themecours tc ON tc.theme = t.id LEFT JOIN Cours c ON c.id = tc.cours WHERE c.id =:param AND q.validated = 1")
     fun getCountQuestionValidated(param:Long?) : Int
 
     @Query("SELECT COUNT(*) FROM cours WHERE tag =:param")

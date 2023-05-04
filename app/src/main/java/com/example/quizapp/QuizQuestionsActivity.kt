@@ -142,21 +142,47 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                                         concept_watched = true
                                     }
 
-                                    val total_question = db.conceptdao().getCountQuestionByConceptd(it.id)
-                                    val total_validated = db.conceptdao().getCountQuestionValidated(it.id)
-                                    val purcentage = (total_validated * 100) / total_question
+                                    if(concept_watched){
+                                        val total_question = db.conceptdao().getCountQuestionByConceptd(it.id)
+                                        val total_validated = db.conceptdao().getCountQuestionValidated(it.id)
+                                        val purcentage = (total_validated * 100) / total_question
 
-                                    if (purcentage == 0 && concept_watched == false) {
-                                        it.tag = "Non commencé"
-                                    } else if (purcentage < 50){
-                                        it.tag = "Initiation"
-                                    } else if (purcentage >= 50 && purcentage < 70){
-                                        it.tag = "Compréhension"
-                                    } else if (purcentage >= 70) {
-                                        it.tag = "Maîtrise"
+                                        if (purcentage < 50){
+                                            it.tag = "Initiation"
+                                        } else if (purcentage >= 50 && purcentage < 70){
+                                            it.tag = "Compréhension"
+                                        } else if (purcentage >= 70) {
+                                            it.tag = "Maîtrise"
+                                        }
+                                        //update tag
+                                        db.conceptdao().update(it)
                                     }
-                                    //update tag
-                                    db.conceptdao().update(it)
+                                }
+
+                                val coursList = db.coursdao().getAll()
+
+                                coursList.forEach {
+                                    val total_watched = db.coursdao().getCountWatchedQuestion(it.id)
+                                    var cours_watched = false
+                                    if (total_watched > 0) {
+                                        cours_watched = true
+                                    }
+
+                                    if(cours_watched){
+                                        val total_question = db.coursdao().getCountQuestionByConceptd(it.id)
+                                        val total_validated = db.coursdao().getCountQuestionValidated(it.id)
+                                        val purcentage = (total_validated * 100) / total_question
+
+                                        if (purcentage < 50){
+                                            it.tag = "Initiation"
+                                        } else if (purcentage >= 50 && purcentage < 70){
+                                            it.tag = "Compréhension"
+                                        } else if (purcentage >= 70) {
+                                            it.tag = "Maîtrise"
+                                        }
+                                        //update tag
+                                        db.coursdao().update(it)
+                                    }
                                 }
 
                                 Toast.makeText(

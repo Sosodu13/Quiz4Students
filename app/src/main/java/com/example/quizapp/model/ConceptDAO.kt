@@ -31,6 +31,9 @@ interface ConceptDAO {
     @Query("SELECT COUNT(*) FROM concept WHERE tag =:param")
     fun getSumByTag(param:String?) : Int
 
+    @Query("SELECT COUNT(*) FROM question where concept_id =:param AND (question.date_response - strftime('%s', 'now') < 1681547220063)")
+    fun getCountQuestionOublie(param:Long?) : Int
+
     @Update
     fun update(concept: Concept)
 }

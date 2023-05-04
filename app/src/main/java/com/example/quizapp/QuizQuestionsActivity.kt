@@ -18,6 +18,8 @@ import com.example.quizapp.model.data.Concept
 import com.example.quizapp.model.data.Question
 import com.example.quizapp.model.data.Response
 import kotlinx.android.synthetic.main.activity_quiz_questions.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -215,6 +217,9 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
 
 
                     question?.watched = true;
+                    System.out.println(Date().time)
+                    question?.date_response = Date().time
+                    System.out.println(question?.date_response)
                     if (response!!.good_response) {
                         question?.validated = true
                         goodResponse++

@@ -30,6 +30,12 @@ interface CoursDAO {
     @Query("SELECT COUNT(*) FROM cours WHERE tag =:param")
     fun getSumByTag(param:String?) : Int
 
+    @Query("SELECT COUNT(*) FROM cours c LEFT JOIN themecours tc ON tc.cours = c.id LEFT JOIN theme t ON t.id = tc.theme LEFT JOIN concepttheme ct ON t.id = ct.theme LEFT JOIN concept co ON ct.concept = co.id WHERE c.id =:param and co.tag = 'Oublié'")
+    fun getCountConceptOublie(param:Long?) : Int
+
+    @Query("SELECT COUNT(*) FROM cours c LEFT JOIN themecours tc ON tc.cours = c.id LEFT JOIN theme t ON t.id = tc.theme LEFT JOIN concepttheme ct ON t.id = ct.theme LEFT JOIN concept co ON ct.concept = co.id WHERE c.id =:param")
+    fun getCountConcept(param:Long?) : Int
+
     @Update
     fun update(cours: Cours)
 }

@@ -80,14 +80,14 @@
     </TextView>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/lv_cours"
+        android:id="@+id/lv_cours_accueil"
         android:layout_width="match_parent"
         android:layout_height="130dp"
         android:layout_below="@+id/tv_title_list_cours"/>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardscore"
-        android:layout_below="@+id/lv_cours"
+        android:layout_below="@+id/lv_cours_accueil"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"

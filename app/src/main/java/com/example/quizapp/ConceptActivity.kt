@@ -19,6 +19,7 @@ import kotlinx.android.synthetic.main.activity_concept.*
 
 
 class ConceptActivity : AppCompatActivity() {
+    private var conceptCheckedList = emptyList<ConceptChecked>()
 
     inner class QueryConceptTask (
         private val context: Context,
@@ -31,15 +32,10 @@ class ConceptActivity : AppCompatActivity() {
         }
 
         override fun doInBackground(vararg params: String?): List<ConceptChecked> {
-
             val input = params[0] ?: return emptyList()
-
             val conceptList =  conceptDAO.getConceptsByRecherche(input)
-
-            val concecptCheckList = conceptList.map { concept -> ConceptChecked(concept, false) }
-
-            return concecptCheckList
-
+            conceptCheckedList = conceptList.map { concept -> ConceptChecked(concept, false) }
+            return conceptCheckedList
         }
 
         override fun onPostExecute(result: List<ConceptChecked>?) {
@@ -75,9 +71,9 @@ class ConceptActivity : AppCompatActivity() {
         tv_total_concept_oublie.text = conceptDao.getSumByTag("Oublié").toString()
 
 
-        val concecptCheckList = conceptList.map { concept -> ConceptChecked(concept, false) }
+        conceptCheckedList = conceptList.map { concept -> ConceptChecked(concept, false) }
 
-        val adapter = ListConceptAdapter(this,concecptCheckList!!/*,conceptDao*/)
+        val adapter = ListConceptAdapter(this,conceptCheckedList!!/*,conceptDao*/)
         if(conceptList.count() > 0){
             val recyclerView = findViewById<RecyclerView>(R.id.lv_concept)
             recyclerView.layoutManager = LinearLayoutManager(this)
@@ -94,11 +90,43 @@ class ConceptActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        inputConceptLibel.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable) {}
+            override fun beforeTextChanged(
+                s: CharSequence, start: Int,
+                count: Int, after: Int
+            ) {
+            }
+
+            override fun onTextChanged(
+                s: CharSequence, start: Int,
+                before: Int, count: Int
+            ) {
+                if (s.length != 0) {
+                    var value = inputConceptLibel.text.toString()
+                    value = "%$value%"
+
+                    QueryConceptTask(applicationContext, conceptDao, lv_concept).execute(value)
+                }else{
+                    conceptCheckedList = conceptList.map { concept -> ConceptChecked(concept, false) }
+
+                    val adapter = ListConceptAdapter(applicationContext,conceptCheckedList!!)
+                    if(conceptList.count() > 0){
+                        val recyclerView = findViewById<RecyclerView>(R.id.lv_concept)
+                        recyclerView.layoutManager = LinearLayoutManager(applicationContext)
+                        recyclerView.adapter = adapter
+                    }
+                }
+            }
+        })
+
 
         findViewById<Button>(R.id.btn_start_from_concept).setOnClickListener {
             // lancement de reviser le meme filtre partout
             var questionList = questionDao.getWithoutFilter()
-            val conceptList = concecptCheckList.filter { it.checked }.map { it.concept }
+            val conceptList = conceptCheckedList.filter { it.checked }.map { it.concept }
+            conceptCheckedList.forEach { System.out.println(it.concept.libel) }
+            conceptList.forEach { System.out.println(it.libel) }
 
             if(conceptList.size != 0){
                 var stringIdConcept = ""
@@ -135,35 +163,7 @@ class ConceptActivity : AppCompatActivity() {
 
         val conceptList = conceptDao.getAll()
 
-        inputConceptLibel.addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(s: Editable) {}
-            override fun beforeTextChanged(
-                s: CharSequence, start: Int,
-                count: Int, after: Int
-            ) {
-            }
 
-            override fun onTextChanged(
-                s: CharSequence, start: Int,
-                before: Int, count: Int
-            ) {
-                if (s.length != 0) {
-                    var value = inputConceptLibel.text.toString()
-                    value = "%$value%"
-
-                    QueryConceptTask(applicationContext, conceptDao, lv_concept).execute(value)
-                }else{
-                    val concecptCheckList = conceptList.map { concept -> ConceptChecked(concept, false) }
-
-                    val adapter = ListConceptAdapter(applicationContext,concecptCheckList!!)
-                    if(conceptList.count() > 0){
-                        val recyclerView = findViewById<RecyclerView>(R.id.lv_concept)
-                        recyclerView.layoutManager = LinearLayoutManager(applicationContext)
-                        recyclerView.adapter = adapter
-                    }
-                }
-            }
-        })
 
 
     }

@@ -31,6 +31,7 @@ class ListCoursAdapter (private val context : Context,
             //Start activity quizz from cours
             val intent = Intent(context, QuizQuestionsActivity::class.java)
             intent.putExtra("Questions", listQuestions.toTypedArray())
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(intent)
         }
     }

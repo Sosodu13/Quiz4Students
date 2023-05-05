@@ -39,6 +39,10 @@ interface CoursDAO {
     @Query("SELECT COUNT(*) FROM cours c LEFT JOIN themecours tc ON tc.cours = c.id LEFT JOIN theme t ON t.id = tc.theme LEFT JOIN concepttheme ct ON t.id = ct.theme LEFT JOIN concept co ON ct.concept = co.id WHERE c.id =:param")
     fun getCountConcept(param:Long?) : Int
 
+
+    @Query("SELECT * FROM cours WHERE libel like(:params)")
+    fun getCoursByRecherche(params:String?) : List<Cours>
+
     @Update
     fun update(cours: Cours)
 }

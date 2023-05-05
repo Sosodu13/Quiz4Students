@@ -45,9 +45,21 @@
 
     </LinearLayout>
 
+    <EditText
+        android:id="@+id/inputCoursLibel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout_navigation"
+        android:background="@drawable/back"
+        android:hint="Rechercher un cours"
+        android:inputType="text"
+        android:padding="15dp"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
+        android:textSize="15sp" />
     <TextView
         android:id="@+id/tv_title_list_concept"
-        android:layout_below="@id/layout_navigation"
+        android:layout_below="@id/inputCoursLibel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"

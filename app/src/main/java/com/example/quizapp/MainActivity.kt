@@ -97,7 +97,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         if(coursListUpdate.count() > 0){
-            val recyclerView = findViewById<RecyclerView>(R.id.lv_cours)
+            val recyclerView = findViewById<RecyclerView>(R.id.lv_cours_accueil)
             recyclerView.layoutManager = LinearLayoutManager(this)
             recyclerView.adapter = ListCoursAccueilAdapter(this,coursListUpdate!!,questionDao, coursDao)
         }

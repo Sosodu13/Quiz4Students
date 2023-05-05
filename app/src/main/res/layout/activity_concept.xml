@@ -45,9 +45,22 @@
 
     </LinearLayout>
 
+    <EditText
+        android:id="@+id/inputConceptLibel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout_navigation"
+        android:background="@drawable/back"
+        android:hint="Rechercher un concept"
+        android:inputType="text"
+        android:padding="15dp"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
+        android:textSize="15sp" />
+
     <TextView
         android:id="@+id/tv_title_list_concept"
-        android:layout_below="@id/layout_navigation"
+        android:layout_below="@id/inputConceptLibel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
@@ -67,11 +80,12 @@
         android:layout_width="match_parent"
         android:layout_below="@+id/tv_title_list_concept"
         android:layout_height="wrap_content">
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/lv_concept"
             android:layout_width="match_parent"
             android:layout_height="350dp"
-            android:layout_marginBottom="40dp"/>
+            android:layout_marginBottom="40dp" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardscore"
